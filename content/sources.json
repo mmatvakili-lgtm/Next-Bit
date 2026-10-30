@@ -1,0 +1,154 @@
+{
+  "note": "این منابع برای راستی‌آزمایی مطالب هر فصل پیشنهاد شده‌اند. متن فصل‌ها ارجاع درون‌متنی ندارد؛ تحریریه باید قبل از انتشار نهایی، هر ادعا را با منبع مشخص مطابقت دهد.",
+  "sources": {
+    "chm": {
+      "title": "Timeline of Computer History",
+      "author": "Computer History Museum",
+      "url": "https://www.computerhistory.org/timeline/"
+    },
+    "leibniz1703": {
+      "title": "Explication de l'Arithmétique Binaire",
+      "author": "G. W. Leibniz",
+      "venue": "Mémoires de l'Académie Royale des Sciences",
+      "year": 1703
+    },
+    "lovelace1843": {
+      "title": "Sketch of the Analytical Engine invented by Charles Babbage (ترجمهٔ منابلا با یادداشت‌های آدا لاولیس)",
+      "author": "L. F. Menabrea; Ada Augusta, Countess of Lovelace",
+      "venue": "Taylor's Scientific Memoirs, vol. 3",
+      "year": 1843
+    },
+    "turing1937": {
+      "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+      "author": "A. M. Turing",
+      "venue": "Proceedings of the London Mathematical Society, ser. 2, vol. 42",
+      "year": "1936–37"
+    },
+    "shannon1938": {
+      "title": "A Symbolic Analysis of Relay and Switching Circuits",
+      "author": "Claude E. Shannon",
+      "venue": "Transactions of the American Institute of Electrical Engineers, vol. 57",
+      "year": 1938
+    },
+    "ascii1963": {
+      "title": "American Standard Code for Information Interchange (ASCII), X3.4-1963",
+      "author": "American Standards Association",
+      "year": 1963
+    },
+    "unicode": {
+      "title": "The Unicode Standard",
+      "author": "The Unicode Consortium",
+      "url": "https://www.unicode.org/standard/standard.html"
+    },
+    "rfc3629": {
+      "title": "UTF-8, a transformation format of ISO 10646 (RFC 3629)",
+      "author": "F. Yergeau",
+      "venue": "IETF",
+      "year": 2003,
+      "url": "https://www.rfc-editor.org/rfc/rfc3629"
+    },
+    "eniacprog": {
+      "title": "ENIAC Programmers Project",
+      "author": "Kathy Kleiman و همکاران",
+      "url": "https://eniacprogrammers.org"
+    },
+    "nobel1956": {
+      "title": "The Nobel Prize in Physics 1956 (Shockley, Bardeen, Brattain)",
+      "author": "NobelPrize.org",
+      "url": "https://www.nobelprize.org/prizes/physics/1956/summary/"
+    },
+    "moore1965": {
+      "title": "Cramming more components onto integrated circuits",
+      "author": "Gordon E. Moore",
+      "venue": "Electronics, vol. 38, no. 8 (19 April)",
+      "year": 1965
+    },
+    "cern-home": {
+      "title": "CERN — صفحهٔ اصلی",
+      "author": "CERN",
+      "url": "https://home.cern"
+    }
+  },
+  "byChapter": {
+    "note": [],
+    "ch-0": [
+      "chm"
+    ],
+    "ch-1": [
+      "chm",
+      "lovelace1843"
+    ],
+    "ch-2": [
+      "leibniz1703",
+      "shannon1938",
+      "ascii1963",
+      "unicode",
+      "rfc3629"
+    ],
+    "ch-3": [
+      "chm",
+      "eniacprog"
+    ],
+    "ch-4": [
+      "nobel1956",
+      "moore1965",
+      "chm"
+    ],
+    "ch-5": [
+      "chm"
+    ],
+    "ch-6": [
+      "chm"
+    ],
+    "ch-7": [
+      "cern-home"
+    ],
+    "ch-8": [],
+    "ch-9": [],
+    "sp-1": [],
+    "sp-2": [],
+    "sp-3": []
+  },
+  "orgs": [
+    {
+      "name": "Computer History Museum",
+      "url": "https://computerhistory.org"
+    },
+    {
+      "name": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com"
+    },
+    {
+      "name": "Nobel Prize",
+      "url": "https://www.nobelprize.org"
+    },
+    {
+      "name": "IEEE",
+      "url": "https://www.ieee.org"
+    },
+    {
+      "name": "Internet Society",
+      "url": "https://www.internetsociety.org"
+    },
+    {
+      "name": "CERN",
+      "url": "https://home.cern"
+    },
+    {
+      "name": "NIST",
+      "url": "https://www.nist.gov"
+    },
+    {
+      "name": "Unicode Consortium",
+      "url": "https://www.unicode.org"
+    },
+    {
+      "name": "NASA",
+      "url": "https://www.nasa.gov"
+    },
+    {
+      "name": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu"
+    }
+  ]
+}

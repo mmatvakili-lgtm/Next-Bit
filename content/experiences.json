@@ -1,0 +1,277 @@
+{
+  "experiences": [
+    {
+      "id": "bit-lab",
+      "slug": "bit-lab",
+      "title": "Bit Lab",
+      "titleFa": "آزمایشگاه بیت",
+      "description": "هشت کلید روشن و خاموش کن و ببین چه عددی، چه مقدار هگزادسیمالی و چه حرفی ساخته می‌شود. دو چالش (۱۰۱۱۰۱۱۰ و عدد ۱۷۳) و تفاوت ASCII و UTF-8 را امتحان کن.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "آسان",
+      "estimatedDuration": "۸ دقیقه",
+      "category": "سیستم دودویی",
+      "relatedChapters": [
+        "ch-2"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "روی هر کلید بزن تا بین ۰ و ۱ عوض شود.",
+        "سعی کن عدد دودویی ۱۰۱۱۰۱۱۰ را بسازی و مقدار ده‌دهی را ببین.",
+        "حالا فقط یک بیت را عوض کن و تأثیرش را روی مقدار نهایی ببین.",
+        "در بخش متن، حروف انگلیسی و فارسی بنویس و تعداد بایت‌ها را مقایسه کن."
+      ]
+    },
+    {
+      "id": "sorting-visualizer",
+      "slug": "sorting-visualizer",
+      "title": "Sorting Visualizer",
+      "titleFa": "نمایشگر مرتب‌سازی",
+      "description": "یک آرایه را با Bubble Sort یا Insertion Sort قدم‌به‌قدم مرتب کن. مقایسه‌ها و جابه‌جایی‌ها را بشمار و سرعت را خودت تنظیم کن.",
+      "experienceType": "Algorithm Visualizer",
+      "difficulty": "آسان",
+      "estimatedDuration": "۸ دقیقه",
+      "category": "الگوریتم",
+      "relatedChapters": [
+        "sp-3"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "اعداد دلخواه را با ویرگول جدا کن و «اعمال آرایه» را بزن، یا از آرایهٔ نمونه شروع کن.",
+        "الگوریتم را انتخاب کن و اجرا را بزن. با «یک گام» هر مرحله را جدا ببین.",
+        "تعداد مقایسه‌ها و جابه‌جایی‌ها را زیر نمودار دنبال کن."
+      ]
+    },
+    {
+      "id": "timeline-explorer",
+      "slug": "timeline-explorer",
+      "title": "Timeline Explorer",
+      "titleFa": "کاوشگر خط زمان",
+      "description": "خط زمانی فیلترپذیر رویدادهای سخت‌افزار، نرم‌افزار، شبکه و هوش مصنوعی. برای هر رویداد، نوعش (ابزار، ماشین مکانیکی، ایده، الکترونیکی…) و محدودیت روایت «اولین» را ببین.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "آسان",
+      "estimatedDuration": "۶ دقیقه",
+      "category": "تاریخ",
+      "relatedChapters": [
+        "ch-9"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "از نوارهای فیلتر برای دیدن یک نوع رویداد استفاده کن.",
+        "روی یک رویداد بزن تا توضیح، اهمیت و منبعش نمایش داده شود.",
+        "با فلش‌ها یا دکمه‌های قبلی و بعدی در خط زمان حرکت کن."
+      ]
+    },
+    {
+      "id": "logic-lab",
+      "slug": "logic-lab",
+      "title": "Logic Lab",
+      "titleFa": "آزمایشگاه منطق",
+      "description": "گیت‌های AND، OR، NOT و XOR را با ورودی‌های قابل‌تغییر امتحان کن، جدول درستی را ببین و مداری بساز که فقط وقتی دو ورودی متفاوت‌اند ۱ بدهد.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "آسان",
+      "estimatedDuration": "۵ دقیقه",
+      "category": "منطق دیجیتال",
+      "relatedChapters": [
+        "ch-2"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "گیت را انتخاب کن.",
+        "ورودی‌ها را روشن و خاموش کن و خروجی را ببین.",
+        "ردیف فعال جدول درستی با ورودی‌های فعلی هماهنگ می‌شود."
+      ]
+    },
+    {
+      "id": "machine-room",
+      "slug": "machine-room",
+      "title": "Machine Room",
+      "titleFa": "اتاق ماشین",
+      "description": "روی بخش‌های یک کامپیوتر اولیه کلیک کن تا وظیفه و محدودیت هر بخش را ببینی؛ سپس چرخهٔ واکشی، رمزگشایی و اجرا را در یک ماشین آموزشی فرضی گام‌به‌گام اجرا کن.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "آسان",
+      "estimatedDuration": "۶ دقیقه",
+      "category": "سخت‌افزار",
+      "relatedChapters": [
+        "ch-3"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "روی هر بخش بزن تا وظیفه و محدودیتش را بخوانی.",
+        "«اجرای جمع» را بزن و مسیر داده را مرحله‌به‌مرحله ببین."
+      ]
+    },
+    {
+      "id": "chip-factory",
+      "slug": "chip-factory",
+      "title": "Chip Factory",
+      "titleFa": "کارخانهٔ تراشه",
+      "description": "یک ترانزیستور را به‌عنوان کلید ببین، با ترکیب دو ترانزیستور گیت بساز و بعد با گیت‌ها یک جمع‌کنندهٔ یک‌بیتی بساز. این یک مدل آموزشی ساده است، نه شبیه‌سازی تولید واقعی تراشه.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "متوسط",
+      "estimatedDuration": "۶ دقیقه",
+      "category": "سخت‌افزار",
+      "relatedChapters": [
+        "ch-4"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "مرحلهٔ ۱: ولتاژ گیت را عوض کن و رفتار کلید را ببین.",
+        "مرحلهٔ ۲: دو ترانزیستور را سری یا موازی ببند و گیت حاصل را ببین.",
+        "مرحلهٔ ۳: ورودی‌های جمع‌کنندهٔ یک‌بیتی را عوض کن."
+      ]
+    },
+    {
+      "id": "program-machine",
+      "slug": "program-machine",
+      "title": "Program the Machine",
+      "titleFa": "ماشین را برنامه‌ریزی کن",
+      "description": "یک ماشین مکانیکی فرضی سه دستور دارد. ترتیب دستورها را عوض کن و ببین نتیجه چه می‌شود.",
+      "experienceType": "Code Challenge",
+      "difficulty": "آسان",
+      "estimatedDuration": "۴ دقیقه",
+      "category": "برنامه‌نویسی",
+      "relatedChapters": [
+        "ch-1"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "دستورها را با فلش‌ها جابه‌جا کن.",
+        "«اجرا» را بزن و خروجی و مراحل را ببین.",
+        "سعی کن ترتیبی پیدا کنی که خروجی ۸ شود."
+      ]
+    },
+    {
+      "id": "count-choices",
+      "slug": "count-choices",
+      "title": "Counting Choices",
+      "titleFa": "سه راه برای شمردن",
+      "description": "برای شمردن ۲۵۰۰ قطعه سه راه داری. هر راه را انتخاب کن و ببین در چه شرایطی مناسب‌تر است.",
+      "experienceType": "Educational Quiz",
+      "difficulty": "آسان",
+      "estimatedDuration": "۲ دقیقه",
+      "category": "تفکر محاسباتی",
+      "relatedChapters": [
+        "ch-0"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "instructions": [
+        "یک راه را انتخاب کن.",
+        "پاسخ به شرایط بستگی دارد؛ شرایط را تغییر بده و نتیجه را مقایسه کن."
+      ]
+    },
+    {
+      "id": "future-lab",
+      "slug": "future-lab",
+      "title": "Future Lab",
+      "titleFa": "آزمایشگاه آینده",
+      "description": "سه سناریوی فرضی و یک مدل ساده برای تمرین مصالحه‌های مهندسی (عملکرد، انرژی، هزینه، قابلیت اعتماد، تأخیر). خروجی‌ها پیش‌بینی نیستند.",
+      "experienceType": "Interactive Diagram",
+      "difficulty": "آسان",
+      "estimatedDuration": "۵ دقیقه",
+      "category": "آینده محاسبات",
+      "relatedChapters": [
+        "ch-9"
+      ],
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "editorialReview": true,
+      "instructions": [
+        "یک مسیر را انتخاب کن.",
+        "بین سه برگهٔ «امروز»، «در پژوهش» و «سناریو» جابه‌جا شو.",
+        "به برچسب «پیش‌بینی نیست» روی هر سناریو توجه کن."
+      ]
+    },
+    {
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "difficulty": "متوسط",
+      "id": "code-lab",
+      "slug": "code-lab",
+      "title": "Code Lab",
+      "titleFa": "آزمایشگاه کد",
+      "experienceType": "Algorithm Visualizer",
+      "estimatedDuration": "۸ دقیقه",
+      "category": "الگوریتم و برنامه‌نویسی",
+      "relatedChapters": [
+        "ch-5"
+      ],
+      "description": "شبه‌کد را خط‌به‌خط اجرا کن، مقدار متغیرها را ببین و یک خطای منطقی کنترل‌شده بساز تا تفاوت خطای نحوی، زمان اجرا و منطقی را ببینی.",
+      "instructions": [
+        "یکی از دو برنامه (جمع چند عدد یا بزرگ‌ترین عدد) را انتخاب کن.",
+        "با «گام بعد» اجرا را جلو ببر و مقدار متغیرها را دنبال کن.",
+        "گزینهٔ «خطای منطقی» را روشن کن و ببین چرا جواب غلط می‌شود."
+      ]
+    },
+    {
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "difficulty": "آسان",
+      "id": "desk-time",
+      "slug": "desk-time",
+      "title": "Desk Through Time",
+      "titleFa": "میز کار در گذر زمان",
+      "experienceType": "Interactive Diagram",
+      "estimatedDuration": "۵ دقیقه",
+      "category": "رایانهٔ شخصی",
+      "relatedChapters": [
+        "ch-6"
+      ],
+      "description": "بین چند دورهٔ تاریخ کامپیوتر جابه‌جا شو و محیط کار، ورودی، ذخیره‌سازی و رابط کاربری را مقایسه کن.",
+      "instructions": [
+        "یک دوره را انتخاب کن.",
+        "چهار ویژگی را بخوان و با دوره‌ای دیگر مقایسه کن.",
+        "بنویس کدام تغییر استفاده را برای افراد بیشتری آسان کرد."
+      ]
+    },
+    {
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "difficulty": "آسان",
+      "id": "request-journey",
+      "slug": "request-journey",
+      "title": "Request Journey",
+      "titleFa": "سفر یک درخواست",
+      "experienceType": "Interactive Diagram",
+      "estimatedDuration": "۶ دقیقه",
+      "category": "شبکه",
+      "relatedChapters": [
+        "ch-7"
+      ],
+      "description": "مسیر یک درخواست وب را از مرورگر تا سرور و برگشت دنبال کن؛ در هر مرحله ببین چه اتفاقی می‌افتد و چه چیزی ممکن است تأخیر یا خطا بسازد.",
+      "instructions": [
+        "یک آدرس نمونه انتخاب کن.",
+        "مراحل را یکی‌یکی جلو ببر.",
+        "در هر مرحله علت‌های محتمل تأخیر یا خطا را بخوان."
+      ]
+    },
+    {
+      "relatedIssue": "issue-01",
+      "status": "published",
+      "difficulty": "متوسط",
+      "id": "ml-playground",
+      "slug": "ml-playground",
+      "title": "Learning From Data",
+      "titleFa": "ماشین چطور یاد می‌گیره؟",
+      "experienceType": "Educational Simulation",
+      "estimatedDuration": "۸ دقیقه",
+      "category": "هوش مصنوعی",
+      "relatedChapters": [
+        "ch-8"
+      ],
+      "description": "چند نمونهٔ میوه با ویژگی‌های اندازه و رنگ را به یک مدل ساده بده، داده‌های آموزشی را تغییر بده و ببین مرز تصمیم و دقت چطور تغییر می‌کند. این یک مدل آموزشی ساده است، نه بازسازی یک هوش مصنوعی واقعی.",
+      "instructions": [
+        "روی نمودار کلیک کن تا نمونهٔ جدید اضافه شود.",
+        "کلاس نمونه را عوض کن یا نمونه‌ها را حذف کن.",
+        "داده‌ها را نامتوازن یا ناقص کن و تغییر نتیجه را ببین."
+      ]
+    }
+  ]
+}

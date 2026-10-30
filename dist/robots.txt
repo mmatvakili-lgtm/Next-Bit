@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nextbit.example/sitemap.xml

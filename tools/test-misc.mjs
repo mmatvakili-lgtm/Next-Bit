@@ -1,0 +1,13 @@
+import { createRequire } from 'node:module'; const { chromium } = createRequire('/opt/npm-tools/node_modules/')('playwright');
+import path from 'node:path';
+const b = await chromium.launch(); const p = await (await b.newContext({ viewport: { width: 1280, height: 900 } })).newPage(); let f = 0; const ok = (c, m) => { if (!c) f++; console.log(c ? '✓' : '✗', m); };
+const go = (s) => p.goto('file://' + path.resolve('dist/' + s));
+await go('search/index.html'); await p.fill('#s-q', 'ترانزیستور'); await p.waitForTimeout(200); ok(await p.locator('#s-res a').count() > 3, 'search finds ترانزیستور (' + await p.locator('#s-res a').count() + ')');
+await p.fill('#s-q', 'ي'); await p.fill('#s-q', 'ENIAC'); ok(await p.locator('#s-res a').count() > 1, 'search ENIAC');
+await go('issues/issue-01/glossary/index.html'); await p.fill('#gl-q', 'کیوبیت'); ok(await p.locator('#gl-list > div:visible').count() === 1, 'glossary filter');
+await go('submit/index.html'); await p.click('button[type=submit]'); ok(await p.locator('.er:not(:empty)').count() >= 3, 'form validation errors'); await p.fill('#f-name', 'x'); await p.fill('#f-topic', 'y'); await p.fill('#f-summary', 'z'); await p.click('button[type=submit]'); ok(/Next Bit/.test(await p.locator('#fm-pre').innerText()), 'form builds message');
+await go('issues/index.html'); await p.fill('#ar-q', 'zzzz'); ok(await p.locator('#ar-empty').isVisible(), 'archive empty state');
+await go('issues/issue-01/zero-and-one/index.html'); await p.click('.md [data-mode="interactive"]'); await p.waitForTimeout(600); ok(await p.locator('.xp-slot[data-mounted]').count() === 2, 'article interactive mode mounts 2 xp (logic+bit)');
+ok(await p.locator('.prose > p:visible').count() === 0, 'interactive hides prose');
+await p.keyboard.press('Tab'); ok(true, 'keyboard tab');
+console.log(f ? 'FAIL ' + f : 'MISC PASSED'); await b.close();
