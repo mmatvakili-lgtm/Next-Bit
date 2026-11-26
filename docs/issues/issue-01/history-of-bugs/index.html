@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-root="../../../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>باگ تاریخی: چرا اشتباه‌ها بخشی از پیشرفت فناوری‌اند؟ | Next Bit</title>
+<meta name="description" content="ما معمولاً داستان اختراع‌ها رو از نقطه موفقیت تعریف می‌کنیم.">
+<link rel="canonical" href="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/history-of-bugs/">
+<meta property="og:title" content="باگ تاریخی: چرا اشتباه‌ها بخشی از پیشرفت فناوری‌اند؟ | Next Bit"><meta property="og:description" content="ما معمولاً داستان اختراع‌ها رو از نقطه موفقیت تعریف می‌کنیم."><meta property="og:type" content="article"><meta property="og:locale" content="fa_IR"><meta property="og:site_name" content="Next Bit"><meta property="og:url" content="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/history-of-bugs/"><meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A0B0A"><link rel="icon" href="data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20viewBox%3D%220%200%20500%20500%22%20fill%3D%22%23F5F7F3%22%20aria-hidden%3D%22true%22%3E%0A%20%20%3C!--%20Generator%3A%20Adobe%20Illustrator%2030.8.1%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%202.1.4%20Build%201)%20%20--%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20.st0%20%7B%0A%20%20%20%20%20%20%20%20font-family%3A%20MyriadPro-Regular%2C%20'Myriad%20Pro'%3B%0A%20%20%20%20%20%20%20%20font-size%3A%2055.29px%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.st1%20%7B%0A%20%20%20%20%20%20%20%20fill%3A%20%2300b808%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%3C%2Fstyle%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M398.44%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M456.98%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M153.41%2C326.52c-2.87%2C1.77-4.63%2C4.9-4.63%2C8.27v38.77c0%2C7.64%2C8.41%2C12.29%2C14.88%2C8.22l254.82-160.2c2.83-1.78%2C4.54-4.88%2C4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98%2C163.45Z%22%2F%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M288.2%2C81.17L163.63%2C3.49c-6.47-4.03-14.85.62-14.85%2C8.24v38.79c0%2C3.4%2C1.78%2C6.55%2C4.69%2C8.31l133.34%2C80.56c1.97%2C1.19%2C4.49-.23%2C4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M298.21%2C92.74v49.81c0%2C2.31%2C1.21%2C4.45%2C3.18%2C5.64l61.69%2C37.27c2.06%2C1.24%2C4.63%2C1.23%2C6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52%2C2.51Z%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Crect%20x%3D%228.78%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Crect%20x%3D%2299.76%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M315.32%2C3.09l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%0A%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@300..900&display=swap">
+<link rel="stylesheet" href="../../../assets/styles.css">
+<link rel="stylesheet" href="../../../assets/editorial.css">
+<link rel="stylesheet" href="../../../assets/studio.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"باگ تاریخی: چرا اشتباه‌ها بخشی از پیشرفت فناوری‌اند؟","inLanguage":"fa","isPartOf":{"@type":"PublicationIssue","issueNumber":1,"name":"از صفر و یک تا آینده"}}</script>
+</head>
+<body data-mode="reading" data-article="sp-1">
+<a class="skip" href="#main">پرش به محتوا</a>
+<header class="site-h"><div class="in nav">
+<a class="brand" href="../../../index.html" aria-label="Next Bit — خانه"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500" fill="#F5F7F3" aria-hidden="true">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 55.29px;
+      }
+
+      .st1 {
+        fill: #00b808;
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M398.44,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path d="M456.98,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path class="st1" d="M153.41,326.52c-2.87,1.77-4.63,4.9-4.63,8.27v38.77c0,7.64,8.41,12.29,14.88,8.22l254.82-160.2c2.83-1.78,4.54-4.88,4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98,163.45Z"/>
+    <g>
+      <path class="st1" d="M288.2,81.17L163.63,3.49c-6.47-4.03-14.85.62-14.85,8.24v38.79c0,3.4,1.78,6.55,4.69,8.31l133.34,80.56c1.97,1.19,4.49-.23,4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z"/>
+      <path class="st1" d="M298.21,92.74v49.81c0,2.31,1.21,4.45,3.18,5.64l61.69,37.27c2.06,1.24,4.63,1.23,6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52,2.51Z"/>
+    </g>
+    <rect x="8.78" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <rect x="99.76" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <path d="M315.32,3.09l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+  </g>
+  
+</svg><b>NEXT BIT</b></a>
+<nav aria-label="ناوبری اصلی"><ul id="nav-list"><li><a href="../../../index.html">خانه</a></li><li><a href="../../../issues/index.html" aria-current="page">شماره‌ها</a></li><li><a href="../../../experiences/index.html">تجربه‌ها</a></li><li><a href="../../../issues/issue-01/glossary/index.html">واژه‌نامه</a></li><li><a href="../../../about/index.html">درباره</a></li><li><a href="../../../search/index.html">جست‌وجو</a></li></ul></nav>
+<div class="nav-tools"><button class="ic-btn" id="motion-btn" type="button" aria-pressed="false" title="کاهش حرکت" aria-label="کاهش حرکت">◐</button><button class="ic-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="منو">☰</button></div>
+</div></header>
+<main id="main">
+<div class="rd-bar" id="rd-bar"><div class="in rd-in"><a class="b" href="../../../issues/issue-01/index.html">← فهرست شماره</a>
+<div class="md" role="group" aria-label="حالت مطالعه"><a class="b" style="border:0;padding:0 14px;color:var(--green)" href="../../../issues/issue-01/read/index.html#flipbook">Flipbook</a><button type="button" data-mode="reading" aria-pressed="true">مطالعهٔ مدرن</button><button type="button" data-mode="interactive" aria-pressed="false">تعاملی</button></div>
+<div class="md" role="group" aria-label="اندازهٔ متن"><button type="button" data-fs="-1" aria-label="کوچک‌تر کردن متن">A−</button><button type="button" data-fs="1" aria-label="بزرگ‌تر کردن متن">A+</button></div></div><div class="prog" aria-hidden="true"><i id="prog-i"></i></div></div>
+<section class="rd-head" data-min="2" data-wm="SP"><div class="in"><div class="kk">SPECIAL 01 · ۲ دقیقه</div><p class="sub" style="margin:0 0 8px">پرونده ویژه اول</p><h1>باگ تاریخی: چرا اشتباه‌ها بخشی از پیشرفت فناوری‌اند؟</h1></div></section>
+<div class="in rd-body"><aside class="rd-toc" aria-label="فهرست این بخش"><b>CONTENTS</b><a href="#sp-1-c1">پرونده تاریخی: اولین «باگ» واقعی</a><a href="#sp-1-s2">چرا خطاها اهمیت دارن؟</a><a href="#sp-1-s3">چطور مثل یک برنامه‌نویس به مشکل نگاه کنیم؟</a><a href="#sp-1-c2">تمرین</a></aside>
+<article class="prose" lang="fa"><div class="back-note"><span>حالت «تعاملی» فقط تجربه‌های این بخش را نشان می‌دهد.</span><button class="btn sm ko" type="button" data-mode="reading">بازگشت به متن</button></div>
+<div class="intro"><p>ما معمولاً داستان اختراع‌ها رو از نقطه موفقیت تعریف می‌کنیم.</p>
+<p>محصول ساخته شد، فناوری پیشرفت کرد و همه‌چیز خوب پیش رفت.</p>
+<p>اما توسعه نرم‌افزار و سخت‌افزار همیشه این‌قدر مرتب نیست.</p>
+<p>خطاهای طراحی، فرض‌های نادرست، داده‌های ناقص و مشکلات اجرایی می‌تونن باعث بشن یک سامانه برخلاف انتظار عمل کنه.</p>
+<p>در دنیای کامپیوتر، <span class="gl-w">باگ</span><a class="gl-ref" href="../../../issues/issue-01/glossary/index.html#gl-15" data-term="باگ" data-def="خطا یا نقصی در نرم‌افزار یا سامانه که باعث می‌شه رفتار واقعی با رفتار مورد انتظار تفاوت داشته باشه." aria-label="تعریف «باگ» در واژه‌نامه" title="واژه‌نامه: باگ"><i aria-hidden="true">i</i></a> فقط یک اشتباه تایپی نیست.</p>
+<p>گاهی یک شرط منطقی نادرست، یک خطای محاسباتی، مدیریت اشتباه حافظه یا فرض اشتباه درباره ورودی‌ها می‌تونه نتیجه‌ای کاملاً متفاوت ایجاد کنه.</p></div><aside class="callout think" id="sp-1-c1" data-kind="note"><h3>پرونده تاریخی: اولین «باگ» واقعی</h3><p>در سپتامبر ۱۹۴۷ (تاریخی که معمولاً ۹ سپتامبر ذکر می‌شه) مهندس‌هایی که روی کامپیوتر <bdi class="en" dir="ltr">Mark II</bdi> دانشگاه هاروارد کار می‌کردن، دلیل یک خرابی رو در یکی از قطعه‌های دستگاه پیدا کردن: یک پروانهٔ شب‌پره که توش گیر کرده بود.</p>
+<p>اون‌ها پروانه رو برداشتن، با چسب نواری توی دفتر ثبت وقایع دستگاه چسبوندن و کنارش نوشتن: «<bdi class="en" dir="ltr">First actual case of bug being found</bdi>»؛ یعنی «اولین مورد واقعی پیدا شدن باگ».</p>
+<p>نکتهٔ جالب اینه که این جمله یک شوخی بود. «باگ» از قبل هم در زبان مهندس‌ها برای عیب‌های کوچک و پنهان دستگاه‌ها به کار می‌رفت؛ مثلاً توماس ادیسون در دهه‌های ۱۸۷۰ و ۱۸۸۰ دربارهٔ «باگ» در طرح‌ها و دستگاه‌هاش حرف زده. پس این ماجرا آغاز واژهٔ باگ نبود؛ اولین نمونهٔ ثبت‌شدهٔ یک باگ «واقعی» بود که با لحنی شوخ گزارش شد.</p>
+<p>گریس هاپر که اون زمان در تیم <bdi class="en" dir="ltr">Mark II</bdi> بود، بعدها این ماجرا رو زیاد تعریف کرد و به شهرتش کمک کرد؛ اما طبق توضیح موزهٔ اسمیتسونین، این دفتر احتمالاً دفتر خود هاپر نبوده.</p>
+<p>خود دفتر الان در موزهٔ ملی تاریخ آمریکا (<bdi class="en" dir="ltr">Smithsonian</bdi>) نگهداری می‌شه. امروز هم وقتی دنبال پیدا کردن و رفع یک خطا می‌گردیم، بهش می‌گیم «دیباگ» (<bdi class="en" dir="ltr">debug</bdi>).</p>
+<p class="ed-note"><span class="tag w">افزودهٔ تحریریه — نیازمند تأیید</span> این بخش افزودهٔ تحریریه است و باید پیش از انتشار نهایی با منابع (پیوندهای انتهای همین مقاله) تطبیق داده شود؛ در عکس تاریخی واقعی هم باید مجوز استفاده بررسی بشه.</p></aside>
+<figure class="fig ph" id="fig-ph-logbook"><img src="../../../photos/mark2-logbook-bug.jpg" width="1200" height="949" alt="صفحهٔ اصلی دفتر ثبت وقایع Harvard Mark II با پروانهٔ چسبانده‌شده و یادداشت First actual case of bug being found" loading="lazy" decoding="async"><figcaption>صفحهٔ اصلی دفتر ثبت وقایع <bdi class="en" dir="ltr">Mark II</bdi> (سپتامبر ۱۹۴۷) با پروانهٔ شب‌پره و یادداشت مشهور «اولین مورد واقعی پیدا شدن باگ». <small><bdi class="en" dir="ltr">Smithsonian NMAH</bdi> / <bdi class="en" dir="ltr">Wikimedia Commons</bdi> · <a href="https://commons.wikimedia.org/wiki/File:First_Computer_Bug,_1947.jpg" rel="noopener" target="_blank">منبع</a></small></figcaption></figure>
+<h2 id="sp-1-s2">چرا خطاها اهمیت دارن؟</h2>
+<p>چون نرم‌افزارها معمولاً در محیط‌هایی اجرا می‌شن که همه شرایط اون‌ها از قبل قابل پیش‌بینی نیست.</p>
+<p>برنامه‌ای ممکنه برای ورودی‌های معمولی درست کار کنه، اما با یک ورودی غیرمنتظره شکست بخوره.</p>
+<p>برای همین، تست نرم‌افزار فقط به معنی اجرای یک برنامه و دیدن نتیجه ظاهری اون نیست.</p>
+<p>باید شرایط مختلف رو بررسی کنیم، فرض‌های برنامه رو به چالش بکشیم و تلاش کنیم خطاهایی رو پیدا کنیم که در استفاده روزمره به‌راحتی دیده نمی‌شن.</p>
+<h2 id="sp-1-s3">چطور مثل یک برنامه‌نویس به مشکل نگاه کنیم؟</h2>
+<p>وقتی یک برنامه درست کار نمی‌کنه، قبل از تغییر تصادفی کد، این سؤال‌ها رو بپرس:</p>
+<ul><li>انتظار داشتم چه اتفاقی بیفته؟</li><li>واقعاً چه اتفاقی افتاده؟</li><li>مشکل در چه شرایطی تکرار می‌شه؟</li><li>چه ورودی‌ای باعث بروز خطا می‌شه؟</li><li>آیا می‌تونم یک نمونه کوچک برای بازتولید مشکل بسازم؟</li></ul>
+<p>این روش کمک می‌کنه به‌جای حدس زدن، مسئله رو مرحله‌به‌مرحله بررسی کنی.</p>
+<aside class="callout think" id="sp-1-c2" data-kind="exercise"><h3>تمرین</h3><p>برنامه‌ای بنویس که میانگین چند عدد رو محاسبه کنه.</p>
+<p>بعد این شرایط رو امتحان کن:</p>
+<ul><li>فهرست خالی</li><li>فقط یک عدد</li><li>عددهای منفی</li><li>ورودی نامعتبر</li><li>مقدارهای بسیار بزرگ</li></ul>
+<p>کدام شرایط نیاز به بررسی بیشتری دارن؟</p>
+<p>پاسخ رو پیش از دیدن راه‌حل احتمالی خودت بنویس.</p></aside><section class="listen src-hide" id="listen-sp-1" data-art="sp-1" data-title="باگ تاریخی: چرا اشتباه‌ها بخشی از پیشرفت فناوری‌اند؟" data-audio="../../../audio/history-of-bugs.mp3" aria-label="نسخهٔ صوتی"><div class="ls-main"><div class="kk mono">PODCAST · LISTEN</div><h2 class="ls-h">نسخهٔ صوتی این بخش</h2><p class="ls-p">اگر حوصلهٔ خوندن نداری، همین بخش رو به‌صورت صوتی گوش بده.</p><div class="nb-ap-mount"></div><details class="ls-alt"><summary>گویندهٔ خودکار مرورگر (جایگزین)</summary><div class="ls-ctl"><button type="button" class="btn sm" data-listen="play">▶ گوش بده</button><button type="button" class="btn sm ko" data-listen="pause" disabled>⏸ مکث</button><button type="button" class="btn sm ko" data-listen="stop" disabled>■ توقف</button><label class="ls-rate">سرعت <select data-listen-rate aria-label="سرعت گفتار"><option value="0.85">آهسته</option><option value="1" selected>عادی</option><option value="1.2">سریع</option><option value="1.5">خیلی سریع</option></select></label></div></details></div><figure class="ls-qr"><div data-qr="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/history-of-bugs/index.html#listen-sp-1"></div><figcaption>با گوشی اسکن کن؛ همین بخش باز می‌شه تا گوش بدی.</figcaption></figure></section>
+<section class="src" aria-labelledby="sp-1-src"><h2 id="sp-1-src">منابع پیشنهادی برای راستی‌آزمایی</h2><p class="nt">متن این بخش ارجاع درون‌متنی ندارد؛ فهرست زیر نقطهٔ شروع بررسی تحریریه است، نه تأیید ادعاهای تک‌تک جمله‌ها. <a href="../../../issues/issue-01/sources/index.html">فهرست عمومی منابع شماره</a></p><ol><li>Smithsonian National Museum of American History، <i>Log Book With Computer Bug</i> — <a href="https://www.si.edu/object/log-book-computer-bug:nmah_334663" rel="noopener" target="_blank">پیوند</a></li><li>JSTOR Daily، <i>The Bug in the Computer Bug Story</i> — <a href="https://daily.jstor.org/the-bug-in-the-computer-bug-story" rel="noopener" target="_blank">پیوند</a></li></ol></section>
+<section class="src-hide"><h2 style="font-size:22px;margin:2em 0 .4em">ادامه بده</h2><div class="rel"><a href="../../../issues/issue-01/first-programs/index.html">مرتبط: اولین برنامه‌ها</a><a href="../../../issues/issue-01/the-future/index.html">مرتبط: آینده کامپیوتر</a></div></section>
+<nav class="pn-nav src-hide" aria-label="قبلی و بعدی"><a href="../../../issues/issue-01/cpu-vs-gpu/index.html" rel="next"><small>NEXT →</small><b>نبرد فناوری‌ها: <bdi class="en" dir="ltr">CPU</bdi> یا <bdi class="en" dir="ltr">GPU</bdi>؟</b></a><a href="../../../issues/issue-01/the-future/index.html" rel="prev"><small>← PREVIOUS</small><b>آینده کامپیوتر؛ هنوز داستان تموم نشده</b></a></nav>
+</article></div>
+</main>
+<footer class="site-f"><div class="in"><div class="ft">
+<div><b>Next Bit</b><p>نشریهٔ دانشجویی دیجیتال و تعاملی مهندسی کامپیوتر دانشگاه کاشان</p><p class="muted">دانشگاه کاشان، دانشکدهٔ مهندسی کامپیوتر</p></div>
+<div><b>بخوان</b><a href="../../../issues/issue-01/index.html">شمارهٔ اول</a><a href="../../../issues/issue-01/read/index.html">مطالعهٔ کامل</a><a href="../../../nextbit-issue-01.pdf" download>دانلود PDF مجله</a><a href="../../../issues/index.html">آرشیو</a><a href="../../../issues/issue-01/glossary/index.html">واژه‌نامه</a><a href="../../../issues/issue-01/sources/index.html">منابع</a></div>
+<div><b>تجربه کن</b><a href="../../../experiences/index.html">همهٔ تجربه‌ها</a><a href="../../../issues/issue-01/start/index.html">از کجا شروع کنیم؟</a><a href="../../../search/index.html">جست‌وجو</a></div>
+<div><b>مشارکت</b><a href="../../../about/index.html">درباره</a><a href="../../../team/index.html">تیم</a><a href="../../../submit/index.html">ارسال مقاله</a><a href="../../../collaborate/index.html">همکاری</a><a href="../../../contact/index.html">تماس</a></div>
+</div><div class="ft-end">NEXT BIT · University of Kashan · static site</div></div></footer>
+<script src="../../../assets/app.js" defer></script>
+<script src="../../../assets/editorial.js" defer></script>
+<script src="../../../assets/studio.js" defer></script>
+<script src="../../../assets/qr.js" defer></script>
+<script src="../../../assets/pron.js" defer></script>
+<script src="../../../assets/listen.js" defer></script>
+</body></html>

@@ -1,0 +1,15 @@
+{
+  "name": "Next Bit",
+  "nameFa": "نکست بیت",
+  "tagline": "نشریهٔ دانشجویی دیجیتال و تعاملی مهندسی کامپیوتر دانشگاه کاشان",
+  "description": "نشریه‌ای که فقط خوانده نمی‌شود، اجرا هم می‌شود: مقاله، محیط مطالعه و آزمایشگاه‌های تعاملی برای دانشجویان و علاقه‌مندان کامپیوتر.",
+  "siteUrl": "https://mmatvakili-lgtm.github.io/Next-Bit",
+  "contact": {
+    "email": "m.matvakili@gmail.com",
+    "instagram": "",
+    "github": "mmatvakili-lgtm.github.io",
+    "telegram": "@certfire"
+  },
+  "university": "دانشگاه کاشان، دانشکدهٔ مهندسی کامپیوتر",
+  "_notes": "اطلاعات contact را قبل از انتشار نهایی تکمیل کنید."
+}

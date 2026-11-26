@@ -1,0 +1,2177 @@
+/* ==========================================================================
+   Next Bit — Bespoke Swiss Hardware × Avant-Garde Editorial Engine
+   Zero generic SaaS clichés. Architectural 1px hairlines, analog grain,
+   3D foil cover, hover-reveal archival index, tactile hardware labs.
+   ========================================================================== */
+
+:root {
+  --era: #00d924;
+  --era-2: #009e1a;
+  --era-soft: rgba(0, 217, 36, 0.11);
+  --era-line: rgba(0, 217, 36, 0.38);
+
+  --void: #070908;
+  --panel: #0d100e;
+  --panel-2: #131714;
+  --hair: rgba(255, 255, 255, 0.085);
+  --hair-strong: rgba(255, 255, 255, 0.16);
+  --ink-hi: #f2f5f3;
+  --ink-mid: #9aa69f;
+  --ink-lo: #5f6b64;
+}
+
+html[data-theme="warm"],
+html[data-theme="light"] {
+  --void: #f4f1ea;
+  --panel: #ece7dc;
+  --panel-2: #e4ddd0;
+  --hair: rgba(15, 20, 17, 0.11);
+  --hair-strong: rgba(15, 20, 17, 0.22);
+  --ink-hi: #121613;
+  --ink-mid: #4b554f;
+  --ink-lo: #758079;
+}
+
+/* Per-chapter subtle hardware LED era accents */
+html[data-era="amber"] {
+  --era: #e89d24;
+  --era-2: #b8740c;
+  --era-soft: rgba(232, 157, 36, 0.11);
+  --era-line: rgba(232, 157, 36, 0.4);
+}
+html[data-era="green"] {
+  --era: #00d924;
+  --era-2: #009e1a;
+  --era-soft: rgba(0, 217, 36, 0.11);
+  --era-line: rgba(0, 217, 36, 0.38);
+}
+html[data-era="cyan"] {
+  --era: #29c5f6;
+  --era-2: #0891b2;
+  --era-soft: rgba(41, 197, 246, 0.11);
+  --era-line: rgba(41, 197, 246, 0.4);
+}
+html[data-era="violet"] {
+  --era: #b77cff;
+  --era-2: #8b46e5;
+  --era-soft: rgba(183, 124, 255, 0.11);
+  --era-line: rgba(183, 124, 255, 0.42);
+}
+html[data-era="rose"] {
+  --era: #f45b69;
+  --era-2: #c83241;
+  --era-soft: rgba(244, 91, 105, 0.11);
+  --era-line: rgba(244, 91, 105, 0.4);
+}
+
+/* ---------- Subtle Analog Film / Paper Grain Overlay ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+html[data-theme="cyber"] body {
+  background-color: var(--void) !important;
+  background-image: none !important;
+}
+.mono,
+.ar .n,
+.meta,
+.xstat b,
+.bl-out span,
+.nb-ap-tm,
+.nb-p-tm {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   1. ARCHITECTURAL HEADER (Precision Hairlines, Zero Bubbles)
+   ========================================================================== */
+.site-h {
+  background: rgba(7, 9, 8, 0.86) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid var(--hair) !important;
+  box-shadow: none !important;
+}
+.nav {
+  min-height: 64px !important;
+}
+.nav ul {
+  gap: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+.nav ul a {
+  position: relative;
+  min-height: 64px !important;
+  padding: 0 16px !important;
+  border-radius: 0 !important;
+  border-bottom: 0 !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8e9b94 !important;
+  transition: color 0.18s ease;
+}
+.nav ul a:hover {
+  color: #f2f5f3 !important;
+  background: transparent;
+}
+.nav ul a[aria-current="page"] {
+  color: #f2f5f3 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.nav ul a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 16px;
+  height: 2px;
+  background: var(--era);
+}
+
+.nav-tools {
+  gap: 6px !important;
+}
+.ic-btn,
+.nb-hdr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  padding: 0 10px;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+  color: #b6c2bc !important;
+  font: 600 12.5px var(--fa);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+.ic-btn:hover,
+.nb-hdr-btn:hover {
+  border-color: var(--era) !important;
+  color: #ffffff !important;
+  background: var(--era-soft) !important;
+}
+.nb-hdr-btn[aria-pressed="true"] {
+  border-color: var(--era-line) !important;
+  color: var(--era) !important;
+}
+.nb-hdr-btn svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+.nb-hdr-btn kbd {
+  font: 600 10.5px var(--mono);
+  color: #7f8c85;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1px 5px;
+  border-radius: 2px;
+  direction: ltr;
+}
+@media (max-width: 860px) {
+  .nav ul {
+    top: 64px !important;
+    background: #080a09 !important;
+    border-bottom: 1px solid var(--era) !important;
+    padding: 8px var(--gutter) 16px !important;
+  }
+  .nav ul a {
+    min-height: 46px !important;
+    border-bottom: 1px solid var(--hair) !important;
+  }
+  .nav ul a[aria-current="page"]::after {
+    display: none;
+  }
+  .nb-hdr-btn span,
+  .nb-hdr-btn kbd {
+    display: none;
+  }
+}
+
+/* ---------- Precision Buttons (Tactile & Sharp, Zero Blobby Gradients) ---------- */
+.btn,
+.xbtn {
+  clip-path: none !important;
+  border-radius: 3px !important;
+  font-weight: 800;
+  min-height: 48px;
+  padding: 10px 24px;
+  transition:
+    transform 0.14s ease,
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+.btn {
+  background: var(--era);
+  color: #060807;
+  border: 1px solid var(--era);
+  box-shadow: none;
+}
+.btn:hover {
+  background: #f5f7f3;
+  border-color: #f5f7f3;
+  color: #060807;
+  transform: translateY(-1px);
+}
+.btn.o,
+.btn.ko {
+  background: transparent !important;
+  border: 1px solid var(--hair-strong) !important;
+  color: var(--ink-hi) !important;
+}
+.dark .btn.o {
+  color: #f2f5f3 !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+.btn.o:hover,
+.btn.ko:hover {
+  border-color: var(--era) !important;
+  color: var(--era) !important;
+  background: var(--era-soft) !important;
+  transform: translateY(-1px);
+}
+.btn:active,
+.xbtn:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   2. INTERACTIVE CANVAS HERO & ARCHITECTURAL TICKER
+   ========================================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #070908 !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--hair);
+}
+.nb-hero-cv {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero .in {
+  position: relative;
+  z-index: 2;
+}
+.hg {
+  padding-block: clamp(56px, 8vw, 108px) !important;
+}
+.tl-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(13, 16, 14, 0.82);
+  font-size: 11.5px !important;
+  letter-spacing: 0.14em !important;
+  color: #c9d3ce !important;
+  margin-bottom: 24px !important;
+}
+.tl-line::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--era);
+  box-shadow: 0 0 8px var(--era);
+}
+.hero h1 {
+  letter-spacing: -0.02em;
+  color: #f4f7f5;
+}
+.hero h1 em {
+  color: var(--era) !important;
+  position: relative;
+}
+
+/* Engineering Marquee Ticker directly below Hero */
+.nb-ticker {
+  overflow: hidden;
+  background: #0b0e0c;
+  border-bottom: 1px solid var(--hair);
+  padding: 11px 0;
+  direction: ltr;
+  user-select: none;
+}
+.nb-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 36px;
+  animation: nbTick 34s linear infinite;
+}
+.nb-ticker:hover .nb-ticker-track {
+  animation-play-state: paused;
+}
+.nb-ticker span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 600 11.5px var(--mono);
+  letter-spacing: 0.12em;
+  color: #7d8b83;
+  white-space: nowrap;
+}
+.nb-ticker span i {
+  width: 5px;
+  height: 5px;
+  background: var(--era);
+  display: inline-block;
+}
+@keyframes nbTick {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   3. 3D SPECULAR FOIL BOOK COVER (Stripe Press Tactile Feel)
+   ========================================================================== */
+.iss > a {
+  perspective: 1400px;
+  display: block;
+}
+.cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow:
+    -14px 20px 50px rgba(0, 0, 0, 0.55),
+    inset 4px 0 0 rgba(255, 255, 255, 0.08) !important;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+/* Book spine crease on right edge (RTL book) */
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 12px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+/* Dynamic holographic specular light sheen */
+.nb-foil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background: radial-gradient(
+    340px circle at var(--fx, 50%) var(--fy, 50%),
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(0, 217, 36, 0.09) 28%,
+    transparent 65%
+  );
+  mix-blend-mode: screen;
+}
+.cover:hover .nb-foil {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   4. ARCHITECTURAL HAIRLINE GRIDS & SWISS EDITORIAL CARDS
+   ========================================================================== */
+.sec {
+  border-bottom: 1px solid var(--hair);
+}
+.eb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 11.5px var(--mono) !important;
+  letter-spacing: 0.14em !important;
+  color: var(--era) !important;
+}
+.eb::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--era);
+}
+
+/* Hairline architectural grid for Featured Chapters & Labs */
+.cards {
+  display: grid !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--hair);
+  border-inline-start: 1px solid var(--hair);
+  background: transparent;
+}
+.xcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 26px 24px !important;
+  background: var(--panel) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hair) !important;
+  border-inline-end: 1px solid var(--hair) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: background 0.22s ease;
+}
+.xcard::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  inset-inline: 0;
+  height: 2px;
+  background: var(--era);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.xcard:hover {
+  background: var(--panel-2) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.xcard:hover::after {
+  transform: scaleX(1);
+}
+.xcard h3 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--ink-hi);
+  transition: color 0.18s;
+}
+.xcard:hover h3 {
+  color: var(--era);
+}
+.xcard .mt {
+  font: 600 11.5px var(--mono) !important;
+  color: var(--ink-lo) !important;
+  letter-spacing: 0.06em;
+}
+.xcard p {
+  color: var(--ink-mid) !important;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+/* Editorial Archival Photo inside Featured Cards */
+.nb-card-thumb {
+  width: 100%;
+  height: 158px;
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  background: #060807;
+  position: relative;
+}
+.nb-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(28%) contrast(1.06) brightness(0.88);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+.xcard:hover .nb-card-thumb img {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.06) brightness(1);
+}
+
+/* ==========================================================================
+   5. MAGAZINE HOVER-REVEAL INDEX (Issue 01 Table of Contents)
+   ========================================================================== */
+.toc-l {
+  border-top: 1px solid var(--hair-strong) !important;
+  gap: 0 !important;
+}
+.toc-l .ar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 14px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hair) !important;
+  border-radius: 0 !important;
+  transition:
+    opacity 0.22s ease,
+    background 0.2s ease,
+    padding-inline-start 0.22s ease;
+}
+/* Dim sibling rows on hover for pure editorial focus */
+.toc-l:has(.ar:hover) .ar:not(:hover) {
+  opacity: 0.36;
+}
+.toc-l .ar:hover {
+  background: var(--panel) !important;
+  padding-inline-start: 22px !important;
+}
+.toc-l .ar .n {
+  font: 700 18px var(--mono) !important;
+  color: var(--ink-lo) !important;
+  transition: color 0.18s;
+}
+.toc-l .ar:hover .n {
+  color: var(--era) !important;
+}
+.toc-l .ar h3 {
+  color: var(--ink-hi);
+  transition: color 0.18s;
+}
+.toc-l .ar:hover h3 {
+  color: var(--era);
+}
+.toc-l .ar .mt {
+  color: var(--ink-lo);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+}
+
+/* Floating Archival Photo Preview Card (Follows Pointer Smoothly) */
+.nb-hover-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6500;
+  width: 248px;
+  pointer-events: none;
+  background: #0a0d0b;
+  border: 1px solid var(--era-line);
+  padding: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  transform: translate3d(-999px, -999px, 0) scale(0.92);
+  transition: opacity 0.18s ease;
+}
+.nb-hover-preview.show {
+  opacity: 1;
+}
+.nb-hover-preview img {
+  width: 100%;
+  height: 152px;
+  object-fit: cover;
+  display: block;
+  background: #060807;
+}
+.nb-hover-preview figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 4px 2px;
+  font: 600 10.5px var(--mono);
+  color: #b4c0b9;
+  letter-spacing: 0.08em;
+  direction: ltr;
+}
+.nb-hover-preview figcaption b {
+  color: var(--era);
+}
+@media (hover: none), (max-width: 900px) {
+  .nb-hover-preview {
+    display: none !important;
+  }
+}
+
+/* Experiences Hub Architectural Grid */
+.xh {
+  gap: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--hair) !important;
+  border-inline-start: 1px solid var(--hair) !important;
+  background: transparent !important;
+}
+.xh a {
+  border: 0 !important;
+  border-bottom: 1px solid var(--hair) !important;
+  border-inline-end: 1px solid var(--hair) !important;
+  border-radius: 0 !important;
+  background: var(--panel) !important;
+  color: var(--ink-hi) !important;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+}
+.xh a:hover {
+  background: var(--panel-2) !important;
+  transform: none !important;
+}
+.xh a:hover h3 {
+  color: var(--era);
+}
+.xh a p {
+  color: var(--ink-mid) !important;
+}
+
+/* Audience Grid & Meta Strip */
+.aud {
+  border: 1px solid var(--hair) !important;
+  border-radius: 0 !important;
+  background: #0a0d0b;
+}
+.aud > div {
+  border-inline-end: 1px solid var(--hair) !important;
+}
+.meta {
+  border-top: 1px solid var(--hair-strong) !important;
+}
+.meta div {
+  border-bottom: 1px solid var(--hair) !important;
+}
+.meta b {
+  color: var(--era) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* ==========================================================================
+   6. READER TOOLBAR, ERA HEADER & LIVE WAVEFORM PODCAST
+   ========================================================================== */
+.rd-bar {
+  background: rgba(7, 9, 8, 0.9) !important;
+  backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid var(--hair) !important;
+}
+.md {
+  border: 1px solid var(--hair-strong) !important;
+  background: #0c0f0d;
+  border-radius: 3px;
+  padding: 2px;
+  gap: 2px;
+}
+.md button,
+.rd-bar .md a.b {
+  min-height: 36px !important;
+  padding: 4px 14px !important;
+  border-radius: 2px !important;
+  color: #8e9b94 !important;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.md button:hover,
+.rd-bar .md a.b:hover {
+  color: #ffffff !important;
+}
+.md button[aria-pressed="true"] {
+  background: var(--era) !important;
+  color: #060807 !important;
+}
+.prog {
+  height: 2px !important;
+  background: var(--hair) !important;
+}
+.prog i {
+  background: var(--era) !important;
+  box-shadow: 0 0 10px var(--era) !important;
+}
+
+.rd-head {
+  background-color: #080a09 !important;
+  background-image:
+    radial-gradient(
+      600px circle at var(--mx, 80%) var(--my, 20%),
+      var(--era-soft),
+      transparent 62%
+    ),
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px) !important;
+  background-size:
+    auto,
+    32px 32px,
+    32px 32px !important;
+  border-bottom: 1px solid var(--era-line) !important;
+}
+.rd-head .kk,
+.nb-rem {
+  color: var(--era) !important;
+}
+.rd-toc {
+  border-radius: 0 !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--hair) !important;
+  border-top: 2px solid var(--era) !important;
+}
+.rd-toc b {
+  color: var(--era) !important;
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+.rd-toc a.on {
+  border-inline-start: 2px solid var(--era) !important;
+  color: var(--era) !important;
+  background: var(--era-soft) !important;
+}
+.callout {
+  border-radius: 2px !important;
+  border: 1px solid var(--hair) !important;
+  background: var(--panel) !important;
+  box-shadow: none !important;
+}
+.callout.summary {
+  border-inline-start: 3px solid var(--era) !important;
+}
+figure.fig.ph {
+  border-radius: 2px !important;
+  border: 1px solid var(--hair) !important;
+  border-bottom: 2px solid var(--era) !important;
+  box-shadow: none !important;
+  background: var(--panel) !important;
+}
+
+/* Podcast Player Live Waveform Bars */
+.nb-wave {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+  padding-inline: 4px;
+}
+.nb-wave i {
+  display: block;
+  width: 2.5px;
+  height: 4px;
+  background: var(--era);
+  opacity: 0.45;
+  transition: height 0.2s ease;
+}
+.nb-wave.playing i {
+  opacity: 1;
+  animation: nbWave 0.9s ease-in-out infinite alternate;
+  animation-delay: calc(var(--w, 0) * 95ms);
+}
+@keyframes nbWave {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+.nb-player,
+.nb-ap {
+  border-radius: 3px !important;
+  border-color: var(--era-line) !important;
+}
+.nb-ap-play,
+.nb-p-play {
+  background: var(--era) !important;
+  border-radius: 3px !important;
+  color: #060807 !important;
+}
+
+/* ==========================================================================
+   7. TACTILE HARDWARE INSTRUMENT LABS (Teenage Engineering Aesthetic)
+   ========================================================================== */
+.xp-slot {
+  position: relative;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  background: #0d100e !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+  overflow: hidden;
+}
+/* Hardware top strip */
+.xp-head {
+  background: #121613;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09) !important;
+  padding: 18px 22px !important;
+}
+.xp-head .mono {
+  color: var(--era) !important;
+  letter-spacing: 0.1em;
+}
+.xp-head a {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 2px;
+  padding: 5px 12px;
+  color: #d0dad4 !important;
+  font-size: 12.5px;
+  text-decoration: none;
+}
+.xp-head a:hover {
+  border-color: var(--era) !important;
+  color: var(--era) !important;
+}
+
+/* Recessed Instrument Control Strip */
+.xp-ctl {
+  background: #090b0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  padding: 8px 10px;
+  gap: 8px !important;
+}
+.xbtn {
+  min-height: 40px !important;
+  padding: 6px 16px !important;
+  background: var(--era) !important;
+  color: #060807 !important;
+  border: 1px solid var(--era) !important;
+  box-shadow: 0 2px 0 var(--era-2);
+}
+.xbtn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.xbtn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.xbtn.o {
+  background: #171c19 !important;
+  color: #d8e2dc !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 2px 0 #050706;
+}
+.xbtn.o:hover:not(:disabled) {
+  border-color: var(--era) !important;
+  color: var(--era) !important;
+}
+.xbtn[aria-pressed="true"] {
+  background: var(--era) !important;
+  color: #060807 !important;
+  border-color: var(--era) !important;
+}
+.xin,
+.xsel {
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: #070908 !important;
+  color: #f2f5f3 !important;
+  min-height: 40px !important;
+}
+.xin:focus,
+.xsel:focus {
+  border-color: var(--era) !important;
+  outline: none;
+}
+.xres {
+  border-radius: 3px !important;
+  background: #121714 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-inline-start: 3px solid var(--era) !important;
+}
+
+/* Tactile Recessed Mechanical Keycaps (Bit Lab) */
+.bl-sw {
+  gap: 8px !important;
+}
+.bl-k {
+  position: relative;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg, #1a1f1c 0%, #121613 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  box-shadow:
+    0 4px 0 #050706,
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #6b7770 !important;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    border-color 0.15s,
+    color 0.15s !important;
+}
+/* Hardware LED indicator dot */
+.bl-k::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #28302b;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.bl-sw button:active .bl-k {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 #050706 !important;
+}
+.bl-sw button[aria-pressed="true"] .bl-k {
+  background: linear-gradient(180deg, #162419 0%, #0e1911 100%) !important;
+  border-color: var(--era) !important;
+  color: var(--era) !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 6px 0 #050706,
+    0 0 18px var(--era-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+.bl-sw button[aria-pressed="true"] .bl-k::before {
+  background: var(--era);
+  box-shadow:
+    0 0 8px var(--era),
+    0 0 2px #fff;
+}
+.bl-out {
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: #080b09;
+}
+.bl-out b {
+  color: var(--era) !important;
+}
+
+/* Logic, Chip Factory, Machine Room & Sorting */
+.lg-sw,
+.lg-out,
+.cf-t,
+.mr button,
+.cc button,
+.pm-list li,
+.fu-pane,
+.tl-det {
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  background: #131815 !important;
+}
+.lg-sw[aria-pressed="true"],
+.lg-out.on,
+.cf-t.on {
+  background: #102415 !important;
+  border-color: var(--era) !important;
+  color: var(--era) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--era-line),
+    0 0 16px var(--era-soft);
+}
+.cf-wire {
+  height: 4px !important;
+  background: #232c26 !important;
+}
+.cf-wire.on {
+  background: var(--era) !important;
+  box-shadow: 0 0 10px var(--era);
+}
+.mr button[aria-pressed="true"],
+.mr button.act,
+.cc button[aria-pressed="true"] {
+  border-color: var(--era) !important;
+  background: var(--era-soft) !important;
+}
+.so-bar {
+  border-radius: 2px 2px 0 0;
+  background: var(--era-2) !important;
+}
+.so-bar.cmp {
+  background: #e89d24 !important;
+}
+.so-bar.swp {
+  background: #f5f7f3 !important;
+}
+.so-bar.srt {
+  background: var(--era) !important;
+}
+
+/* ==========================================================================
+   8. SWISS COMMAND PALETTE (CTRL + K) & PRECISION MOBILE BAR
+   ========================================================================== */
+.nb-cmd-ov {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  background: rgba(5, 7, 6, 0.78);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(20px, 10vh, 96px) 16px 20px;
+}
+.nb-cmd-ov[hidden] {
+  display: none;
+}
+.nb-cmd-box {
+  width: min(620px, 100%);
+  background: #0b0e0c;
+  color: #f2f5f3;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 2px solid var(--era);
+  border-radius: 4px;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.78);
+  overflow: hidden;
+}
+.nb-cmd-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+.nb-cmd-top svg {
+  width: 16px;
+  height: 16px;
+  color: var(--era);
+  flex: none;
+}
+.nb-cmd-top input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font: 600 15.5px var(--fa);
+  outline: none;
+  min-width: 0;
+}
+.nb-cmd-top input::placeholder {
+  color: #67756d;
+}
+.nb-cmd-esc {
+  font: 700 10.5px var(--mono);
+  color: #8e9c94;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.nb-cmd-res {
+  max-height: min(55vh, 410px);
+  overflow-y: auto;
+}
+.nb-cmd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #dce4df;
+  text-decoration: none;
+}
+.nb-cmd-item:hover,
+.nb-cmd-item.on {
+  background: var(--era-soft);
+  color: #fff;
+}
+.nb-cmd-item b {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.nb-cmd-item small {
+  display: block;
+  font-size: 12px;
+  color: #7f8e86;
+  margin-top: 2px;
+}
+.nb-cmd-tag {
+  flex: none;
+  font: 600 10.5px var(--mono);
+  color: var(--era);
+  border: 1px solid var(--era-line);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.nb-cmd-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #080a09;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font: 600 10.5px var(--mono);
+  color: #6b7871;
+  direction: ltr;
+}
+.nb-cmd-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: #7c8b83;
+  font-size: 14px;
+}
+
+/* Mobile Precision Dock (Zero Emojis, Crisp Vector Icons) */
+.nb-mob-bar {
+  display: none;
+}
+@media (max-width: 720px) {
+  body {
+    padding-bottom: 66px;
+  }
+  body.has-player {
+    padding-bottom: 152px;
+  }
+  body.has-player .nb-player {
+    bottom: 62px !important;
+  }
+  .nb-mob-bar {
+    position: fixed;
+    bottom: 0;
+    inset-inline: 0;
+    z-index: 7500;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: rgba(8, 10, 9, 0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 4px 6px env(safe-area-inset-bottom, 6px);
+  }
+  .nb-mob-bar a,
+  .nb-mob-bar button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 52px;
+    background: transparent;
+    border: 0;
+    color: #88968e;
+    font: 600 10.5px var(--fa);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nb-mob-bar svg {
+    width: 18px;
+    height: 18px;
+  }
+  .nb-mob-bar .on {
+    color: var(--era);
+  }
+}
+/* ==========================================================================
+   9. UNIFIED READING UX (Synced Progress, Chapter Jump & Smooth Era Shift)
+   ========================================================================== */
+html {
+  transition: --era 0.35s ease;
+}
+
+/* Unified Progress Widget inside Modern Reader TOC & Issue 01 Hub */
+.nb-prog-box {
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hair);
+  border-inline-start: 2px solid var(--era);
+}
+.nb-prog-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font: 700 11.5px var(--mono);
+  color: var(--ink-mid);
+}
+.nb-prog-top b {
+  color: var(--era);
+  font-family: var(--fa);
+  font-size: 12.5px;
+}
+.nb-prog-rail {
+  height: 4px;
+  background: var(--hair);
+  overflow: hidden;
+  border-radius: 1px;
+}
+.nb-prog-rail i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--era);
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+}
+.nb-prog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.nb-mini-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--hair-strong);
+  background: var(--panel-2);
+  color: var(--ink-hi) !important;
+  font: 700 11.5px var(--fa);
+  text-decoration: none !important;
+  border-radius: 2px;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+.nb-mini-link:hover {
+  border-color: var(--era);
+  color: var(--era) !important;
+  background: var(--era-soft);
+}
+
+/* Issue 01 Hub Unified Progress Banner */
+.nb-hub-prog {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  background: var(--panel);
+  border: 1px solid var(--hair);
+  border-inline-start: 3px solid var(--era);
+}
+.nb-hub-prog .nb-hp-info {
+  flex: 1;
+  min-width: 220px;
+}
+.nb-hub-prog .nb-prog-rail {
+  margin-top: 8px;
+  height: 5px;
+}
+
+/* Read checkmarks in TOC & Issue 01 list */
+.rd-toc .nb-toc-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.rd-toc .nb-toc-row a.nb-toc-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 0 !important;
+}
+.nb-read-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-lo);
+  flex: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.is-read .nb-read-dot {
+  background: var(--era);
+  border-color: var(--era);
+  box-shadow: 0 0 8px var(--era-line);
+}
+.nb-toc-open {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  color: var(--ink-lo) !important;
+  text-decoration: none !important;
+  font: 700 12px var(--mono);
+  border-radius: 2px;
+  opacity: 0.55;
+  transition:
+    opacity 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+.rd-toc .nb-toc-row:hover .nb-toc-open {
+  opacity: 1;
+}
+.nb-toc-open:hover {
+  color: var(--era) !important;
+  background: var(--era-soft);
+}
+
+/* Read badge on Issue 01 chapter rows */
+.toc-l .ar.is-read .n {
+  color: var(--era) !important;
+}
+.nb-done-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  margin-inline-start: 8px;
+  border: 1px solid var(--era-line);
+  background: var(--era-soft);
+  color: var(--era);
+  font: 700 10.5px var(--fa);
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+/* Quick Switch Pill on Individual Chapter Pages */
+.nb-ch-switch {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   10. STUDIO FLIPBOOK DESK (Physical Paper Stack, Gutter Depth, Desk HUD)
+   ========================================================================== */
+.flip-wrap {
+  position: relative;
+  background-color: #060807 !important;
+  background-image:
+    radial-gradient(920px 520px at 50% 42%, var(--era-soft), transparent 68%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px) !important;
+  background-size:
+    auto,
+    36px 36px,
+    36px 36px !important;
+  padding: 22px var(--gutter) 34px !important;
+  transition: background-image 0.45s ease;
+}
+
+/* Ambient Studio Stage & Focus Zoom */
+.flip-wrap #stage {
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center top;
+}
+.flip-wrap.fb-zoom #stage {
+  transform: scale(1.13);
+  margin-bottom: 58px;
+}
+
+/* Physical Magazine Stack Edges (Multi-sheet paper depth on left & right) */
+.flip-wrap .bk.open {
+  position: relative;
+  border-radius: 3px;
+  box-shadow:
+    -3px 0 0 #1b221e,
+    -5px 0 0 #0a0d0b,
+    -8px 0 0 #181f1b,
+    -10px 0 0 #0a0d0b,
+    3px 0 0 #1b221e,
+    5px 0 0 #0a0d0b,
+    8px 0 0 #181f1b,
+    10px 0 0 #0a0d0b,
+    0 34px 80px rgba(0, 0, 0, 0.78),
+    0 0 0 1px var(--era-line) !important;
+}
+.flip-wrap[data-fb-paper="warm"] .bk.open,
+.flip-wrap[data-fb-paper="light"] .bk.open {
+  box-shadow:
+    -3px 0 0 #ddd5c5,
+    -5px 0 0 #b8ae9b,
+    -8px 0 0 #d5ccba,
+    -10px 0 0 #9f9482,
+    3px 0 0 #ddd5c5,
+    5px 0 0 #b8ae9b,
+    8px 0 0 #d5ccba,
+    10px 0 0 #9f9482,
+    0 34px 80px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Subtle Realistic Center Binding Gutter (Zero Text Overlap) */
+.flip-wrap .bk.open::after {
+  width: 1px !important;
+  margin-left: 0 !important;
+  background: var(--era-line) !important;
+  opacity: 0.65;
+}
+.flip-wrap .face.f:not(.cv) {
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.04) 24px,
+    transparent 52px
+  ) !important;
+}
+.flip-wrap .face.k:not(.cv) {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.04) 24px,
+    transparent 52px
+  ) !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face.f:not(.cv),
+.flip-wrap[data-fb-paper="light"] .face.f:not(.cv) {
+  background-image: linear-gradient(
+    to left,
+    rgba(25, 20, 14, 0.11) 0%,
+    rgba(25, 20, 14, 0.025) 22px,
+    transparent 48px
+  ) !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face.k:not(.cv),
+.flip-wrap[data-fb-paper="light"] .face.k:not(.cv) {
+  background-image: linear-gradient(
+    to right,
+    rgba(25, 20, 14, 0.11) 0%,
+    rgba(25, 20, 14, 0.025) 22px,
+    transparent 48px
+  ) !important;
+}
+
+/* Flipbook Independent Paper Modes (Dark Studio / Warm Archival / Crisp White) */
+.flip-wrap[data-fb-paper="dark"] .face.f:not(.cv),
+.flip-wrap[data-fb-paper="dark"] .face.k:not(.cv) {
+  background-color: #0f1411 !important;
+  color: #eaf0ec !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07) !important;
+}
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) p,
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) li,
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) h2,
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) .pg-no span {
+  color: #e7eeea !important;
+}
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) .pg-head .mono,
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) .open-pg .kk,
+.flip-wrap[data-fb-paper="dark"] .face:not(.cv) .fl .fc > b {
+  color: var(--era) !important;
+}
+
+.flip-wrap[data-fb-paper="warm"] .face.f:not(.cv),
+.flip-wrap[data-fb-paper="warm"] .face.k:not(.cv) {
+  background-color: #f5efe3 !important;
+  color: #1d1a15 !important;
+  box-shadow: inset 0 0 0 1px #ddd3c0 !important;
+}
+.flip-wrap[data-fb-paper="light"] .face.f:not(.cv),
+.flip-wrap[data-fb-paper="light"] .face.k:not(.cv) {
+  background-color: #fcfcfa !important;
+  color: #141815 !important;
+  box-shadow: inset 0 0 0 1px #dfe5e1 !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) p,
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) li,
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) h2,
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) .pg-no span,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) p,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) li,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) h2,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) .pg-no span {
+  color: #1a1d1b !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) .pg-head,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) .pg-head {
+  color: #6b655b !important;
+  border-bottom-color: rgba(0, 0, 0, 0.12) !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) .fl .fc,
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) .fl .ex,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) .fl .fc,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) .fl .ex {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #1a1d1b !important;
+}
+.flip-wrap[data-fb-paper="warm"] .face:not(.cv) .open-pg .kk,
+.flip-wrap[data-fb-paper="light"] .face:not(.cv) .open-pg .kk {
+  color: var(--era-2) !important;
+}
+
+/* Corner Page-Turn Hover Cue */
+.flip-wrap .face.f:not(.cv)::before,
+.flip-wrap .face.k:not(.cv)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.flip-wrap .face.f:not(.cv)::before {
+  left: 0;
+  background: linear-gradient(45deg, var(--era-soft) 50%, transparent 50%);
+}
+.flip-wrap .face.k:not(.cv)::before {
+  right: 0;
+  background: linear-gradient(-45deg, var(--era-soft) 50%, transparent 50%);
+}
+.flip-wrap .face:hover::before {
+  opacity: 1;
+}
+
+/* Studio Flipbook Top HUD & Progress Scrubber */
+.nb-fb-hud {
+  max-width: 980px;
+  margin: 0 auto 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(11, 14, 12, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-inline-start: 3px solid var(--era);
+}
+.nb-fb-era {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 12px var(--fa);
+  color: #dce5df;
+}
+.nb-fb-era i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--era);
+  box-shadow: 0 0 10px var(--era);
+}
+.nb-fb-era small {
+  font: 600 10.5px var(--mono);
+  color: var(--era);
+  letter-spacing: 0.08em;
+}
+.nb-fb-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.nb-fb-seg {
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #070908;
+  padding: 2px;
+  gap: 2px;
+}
+.nb-fb-seg button,
+.nb-fb-tbtn {
+  background: transparent;
+  border: 0;
+  color: #93a199;
+  font: 700 11.5px var(--fa);
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.nb-fb-seg button:hover,
+.nb-fb-tbtn:hover {
+  color: #fff;
+}
+.nb-fb-seg button[aria-pressed="true"],
+.nb-fb-tbtn[aria-pressed="true"] {
+  background: var(--era);
+  color: #060807;
+}
+.nb-fb-tbtn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0b0e0c;
+}
+
+/* Magazine Scrubber Bar above Bottom Controls */
+.nb-fb-scrub {
+  max-width: 720px;
+  margin: 18px auto 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+.nb-fb-scrub i {
+  display: block;
+  height: 100%;
+  width: 4%;
+  background: var(--era);
+  box-shadow: 0 0 10px var(--era-line);
+  transition: width 0.28s ease;
+}
+
+/* Sleek Hardware Bottom Controls for Flipbook */
+.flip-wrap .fb-ctl {
+  max-width: 720px;
+  margin: 12px auto 0 !important;
+  padding: 10px 14px !important;
+  background: rgba(11, 14, 12, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 10px !important;
+}
+.flip-wrap .fb-ctl button {
+  min-height: 40px !important;
+  padding: 6px 16px !important;
+  border-radius: 2px !important;
+  font-size: 13px !important;
+}
+.flip-wrap .fb-ctl .pgs {
+  background: #070908 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--era) !important;
+  min-width: 96px;
+}
+/* ==========================================================================
+   11. UNIFIED 2-THEME ENGINE (100% Synced with Dark PDF & Editorial PDF)
+   Strictly 2 themes: html[data-theme="cyber"] & html[data-theme="editorial"]
+   ========================================================================== */
+html[data-theme="editorial"] {
+  --void: #f4f6f2;
+  --panel: #ffffff;
+  --panel-2: #ebf0ec;
+  --hair: rgba(15, 25, 19, 0.12);
+  --hair-strong: rgba(15, 25, 19, 0.24);
+  --ink-hi: #121814;
+  --ink-mid: #3f4d44;
+  --ink-lo: #637369;
+  --bg: #f4f6f2;
+  --bg2: #ebf0ec;
+  --surface: #ffffff;
+  --text: #121814;
+  --border: #d5ddd7;
+  --mute: #56645c;
+}
+html[data-theme="editorial"] body {
+  background: var(--pg, #f4f6f2) !important;
+  color: var(--tx, #121814) !important;
+}
+html[data-theme="cyber"] body[data-article],
+html[data-theme="cyber"] body[data-reader],
+html[data-theme="editorial"] body[data-article],
+html[data-theme="editorial"] body[data-reader] {
+  background: var(--pg, var(--void)) !important;
+  color: var(--tx, var(--ink-hi)) !important;
+  transition: background-color 0.28s ease;
+}
+
+/* Reader Toolbar adapts cleanly to both Dark & Editorial themes */
+html[data-theme="editorial"] .rd-bar {
+  background: var(--surf, #edf2ee) !important;
+  border-bottom: 1px solid var(--brd, #cfd9d2) !important;
+  color: var(--tx, #121814) !important;
+}
+html[data-theme="editorial"] .rd-bar a.b {
+  color: var(--soft, #3a4a40) !important;
+}
+html[data-theme="editorial"] .rd-bar a.b:hover {
+  color: var(--acc) !important;
+}
+html[data-theme="editorial"] .rd-bar .md {
+  background: var(--pg, #f4f6f2) !important;
+  border-color: var(--brd, #c8d4cc) !important;
+}
+html[data-theme="editorial"] .rd-bar .md button,
+html[data-theme="editorial"] .rd-bar .md a.b {
+  color: var(--soft, #3a4a40) !important;
+}
+html[data-theme="editorial"] .rd-bar .md button[aria-pressed="true"] {
+  background: var(--acc) !important;
+  color: var(--on-tx, #ffffff) !important;
+}
+html[data-theme="cyber"] .rd-bar .md button[aria-pressed="true"] {
+  background: var(--acc) !important;
+  color: var(--on-tx, #060d08) !important;
+}
+.prog i {
+  background: var(--acc, var(--era)) !important;
+  box-shadow: 0 0 10px var(--acc, var(--era)) !important;
+}
+
+/* Individual Chapter Header & Reading Canvas (Exact PDF Chapter Palette) */
+body[data-article] .rd-head {
+  background-color: var(--surf) !important;
+  background-image:
+    linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+  border-bottom: 2px solid var(--acc) !important;
+  color: var(--tx) !important;
+}
+body[data-article] .rd-head h1 {
+  color: var(--tx) !important;
+}
+body[data-article] .rd-head .sub {
+  color: var(--soft) !important;
+}
+body[data-article] .rd-head .kk {
+  color: var(--acc) !important;
+}
+
+/* Sidebar TOC synced with active chapter */
+.rd-toc {
+  background: var(--surf, var(--panel)) !important;
+  border: 1px solid var(--brd, var(--hair)) !important;
+  border-top: 3px solid var(--acc, var(--era)) !important;
+  color: var(--tx, var(--ink-hi)) !important;
+}
+.rd-toc b {
+  color: var(--acc, var(--era)) !important;
+}
+.rd-toc a {
+  color: var(--soft, var(--ink-mid)) !important;
+  border-bottom-color: var(--brd, var(--hair)) !important;
+}
+.rd-toc a:hover,
+.rd-toc a.on {
+  color: var(--acc, var(--era)) !important;
+  border-inline-start: 3px solid var(--acc, var(--era)) !important;
+  background: var(--surf2, var(--era-soft)) !important;
+}
+.nb-prog-box {
+  background: var(--pg, var(--panel-2)) !important;
+  border-color: var(--brd, var(--hair)) !important;
+  border-inline-start-color: var(--acc, var(--era)) !important;
+}
+.nb-prog-top b,
+.nb-mini-link:hover {
+  color: var(--acc, var(--era)) !important;
+}
+.nb-prog-rail i {
+  background: var(--acc, var(--era)) !important;
+}
+.nb-mini-link {
+  background: var(--pg, var(--panel-2)) !important;
+  border-color: var(--brd, var(--hair-strong)) !important;
+  color: var(--tx, var(--ink-hi)) !important;
+}
+
+/* Modern Continuous Reader: Every chapter section holds its OWN permanent PDF world */
+.art-sec[data-id] {
+  background: var(--pg) !important;
+  color: var(--tx) !important;
+  border: 1px solid var(--brd) !important;
+  border-top: 4px solid var(--acc) !important;
+  padding: clamp(22px, 3.2vw, 42px) !important;
+  margin-bottom: 32px !important;
+  border-radius: 3px;
+}
+.art-sec[data-id] .sec-h {
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--brd);
+}
+.art-sec[data-id] .sec-h .kk {
+  color: var(--acc) !important;
+}
+.art-sec[data-id] .sec-t {
+  color: var(--tx) !important;
+}
+
+/* Unified Prose, Callouts & Figures in BOTH Chapter Pages and Modern Reader */
+body[data-article] .prose,
+body[data-article] .prose p,
+body[data-article] .prose li,
+body[data-article] .prose h2,
+.art-sec[data-id] .prose,
+.art-sec[data-id] .prose p,
+.art-sec[data-id] .prose li,
+.art-sec[data-id] .prose h2 {
+  color: var(--tx) !important;
+}
+body[data-article] .prose .intro,
+.art-sec[data-id] .prose .intro {
+  background: var(--surf) !important;
+  border-inline-start: 4px solid var(--acc) !important;
+  padding: 14px 18px;
+}
+body[data-article] .prose h2,
+.art-sec[data-id] .prose h2 {
+  border-top: 1px solid var(--brd);
+  padding-top: 14px;
+}
+body[data-article] .prose .ex,
+.art-sec[data-id] .prose .ex {
+  background: var(--surf2) !important;
+  border-inline-start: 4px solid var(--acc) !important;
+  color: var(--acc) !important;
+}
+body[data-article] .prose .ex.fa,
+.art-sec[data-id] .prose .ex.fa {
+  color: var(--tx) !important;
+}
+body[data-article] .callout,
+.art-sec[data-id] .callout {
+  background: var(--surf) !important;
+  border: 1px solid var(--brd) !important;
+  color: var(--tx) !important;
+}
+body[data-article] .callout.believe,
+body[data-article] .callout.summary,
+.art-sec[data-id] .callout.believe,
+.art-sec[data-id] .callout.summary {
+  background: var(--surf2) !important;
+  border-color: var(--acc) !important;
+}
+body[data-article] .callout > h3,
+.art-sec[data-id] .callout > h3 {
+  color: var(--acc) !important;
+}
+body[data-article] .callout > h3::before,
+.art-sec[data-id] .callout > h3::before {
+  background: var(--acc) !important;
+}
+body[data-article] .callout p,
+body[data-article] .callout li,
+.art-sec[data-id] .callout p,
+.art-sec[data-id] .callout li {
+  color: var(--tx) !important;
+}
+body[data-article] figure.fig.ph,
+.art-sec[data-id] figure.fig.ph {
+  background: var(--surf) !important;
+  border: 1px solid var(--brd) !important;
+  border-bottom: 3px solid var(--acc) !important;
+}
+body[data-article] figure.fig figcaption,
+.art-sec[data-id] figure.fig figcaption {
+  color: var(--soft) !important;
+}
+body[data-article] .pn-nav a {
+  background: var(--surf);
+  color: var(--tx);
+  border-color: var(--brd);
+}
+body[data-article] .pn-nav small {
+  color: var(--acc) !important;
+}
+
+/* Issue 01 Hub Rows: Each row carries its exact chapter accent */
+.toc-l .ar[data-aid] .n {
+  color: var(--row-acc, var(--ink-lo)) !important;
+}
+.toc-l .ar[data-aid]:hover h3 {
+  color: var(--row-acc, var(--era)) !important;
+}
+.rd-toc .nb-toc-row[data-nb-chid].is-read .nb-read-dot {
+  background: var(--row-acc, var(--acc)) !important;
+  border-color: var(--row-acc, var(--acc)) !important;
+}
+
+/* ==========================================================================
+   12. FLIPBOOK: 100% SYNCED WITH ACTIVE CHAPTER + 2-THEME ENGINE
+   ========================================================================== */
+.flip-wrap {
+  background-color: var(--desk-bg, #070a08) !important;
+  background-image:
+    radial-gradient(860px 480px at 50% 42%, var(--era-soft), transparent 68%),
+    linear-gradient(to right, rgba(128, 128, 128, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.04) 1px, transparent 1px) !important;
+  background-size:
+    auto,
+    36px 36px,
+    36px 36px !important;
+}
+html[data-theme="editorial"] .flip-wrap {
+  --desk-bg: #e5e9e4;
+}
+html[data-theme="cyber"] .flip-wrap {
+  --desk-bg: #060807;
+}
+
+/* Flipbook pages paint the EXACT PDF palette of the currently open chapter */
+.flip-wrap .face.f:not(.cv),
+.flip-wrap .face.k:not(.cv) {
+  background-color: var(--pg) !important;
+  color: var(--tx) !important;
+  box-shadow: inset 0 0 0 1px var(--brd) !important;
+  transition:
+    background-color 0.28s ease,
+    color 0.22s ease;
+}
+.flip-wrap .face:not(.cv) p,
+.flip-wrap .face:not(.cv) li,
+.flip-wrap .face:not(.cv) h2,
+.flip-wrap .face:not(.cv) .pg-no span,
+.flip-wrap .face:not(.cv) .open-pg h2 {
+  color: var(--tx) !important;
+}
+.flip-wrap .face:not(.cv) .pg-head {
+  color: var(--mute) !important;
+  border-bottom-color: var(--brd) !important;
+}
+.flip-wrap .face:not(.cv) .pg-head .mono,
+.flip-wrap .face:not(.cv) .open-pg .kk,
+.flip-wrap .face:not(.cv) .fl .fc > b {
+  color: var(--acc) !important;
+}
+.flip-wrap .face:not(.cv) .open-pg::after,
+.flip-wrap .face:not(.cv) .fl h2 {
+  border-top-color: var(--acc) !important;
+}
+.flip-wrap .face:not(.cv) .open-pg::after {
+  background: var(--acc) !important;
+}
+.flip-wrap .face:not(.cv) .fl .fc,
+.flip-wrap .face:not(.cv) .fl .ex,
+.flip-wrap .face:not(.cv) .fl .xp-card {
+  background: var(--surf) !important;
+  border-color: var(--brd) !important;
+  color: var(--tx) !important;
+  box-shadow: none !important;
+}
+.flip-wrap .face:not(.cv) .fl .xp-card {
+  border-inline-start: 4px solid var(--acc) !important;
+}
+.flip-wrap .face:not(.cv) .fl .xp-card button {
+  background: var(--acc) !important;
+  color: var(--on-tx) !important;
+}
+.flip-wrap .bk.open {
+  box-shadow:
+    -3px 0 0 var(--surf2),
+    -6px 0 0 var(--brd),
+    3px 0 0 var(--surf2),
+    6px 0 0 var(--brd),
+    0 28px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px var(--brd) !important;
+}
+.flip-wrap .bk.open::after {
+  background: var(--acc) !important;
+  opacity: 0.45;
+}
+
+html[data-theme="editorial"] .nb-fb-hud,
+html[data-theme="editorial"] .flip-wrap .fb-ctl {
+  background: var(--surf) !important;
+  border-color: var(--brd) !important;
+  color: var(--tx) !important;
+}
+html[data-theme="editorial"] .nb-fb-era {
+  color: var(--tx) !important;
+}
+html[data-theme="editorial"] .nb-fb-seg {
+  background: var(--pg) !important;
+  border-color: var(--brd) !important;
+}
+html[data-theme="editorial"] .nb-fb-seg button,
+html[data-theme="editorial"] .nb-fb-tbtn {
+  color: var(--soft) !important;
+}
+html[data-theme="editorial"] .nb-fb-tbtn {
+  background: var(--pg) !important;
+  border-color: var(--brd) !important;
+}
+html[data-theme="editorial"] .nb-fb-seg button[aria-pressed="true"],
+html[data-theme="editorial"] .nb-fb-tbtn[aria-pressed="true"] {
+  background: var(--acc) !important;
+  color: var(--on-tx) !important;
+}
+html[data-theme="editorial"] .flip-wrap .fb-ctl .pgs {
+  background: var(--pg) !important;
+  border-color: var(--brd) !important;
+  color: var(--acc) !important;
+}
+html[data-theme="editorial"] .flip-wrap .fb-ctl button {
+  background: var(--acc) !important;
+  color: var(--on-tx) !important;
+}
+html[data-theme="editorial"] .flip-wrap .fb-ctl .fs-btn {
+  background: transparent !important;
+  color: var(--tx) !important;
+  box-shadow: inset 0 0 0 1.5px var(--acc) !important;
+}
+html[data-theme="editorial"] .flip-wrap .fb-jump,
+html[data-theme="editorial"] .flip-wrap .fb-hint {
+  color: var(--soft) !important;
+}
+html[data-theme="editorial"] .flip-wrap .fb-jump select,
+html[data-theme="editorial"] .flip-wrap .fb-jump input {
+  background: var(--surf) !important;
+  color: var(--tx) !important;
+  border-color: var(--brd) !important;
+}
+/* ==========================================================================
+   13. AUTO-HIDE COMPACT READER BAR & REAL-TIME FFT EQUALIZER
+   ========================================================================== */
+.rd-bar {
+  padding-block: 4px !important;
+  transition:
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+  will-change: transform;
+}
+.rd-bar.nb-bar-hide {
+  transform: translateY(-105%);
+  opacity: 0;
+  pointer-events: none;
+}
+/* In Flipbook mode, keep .rd-bar static so it never overlaps the book stage */
+body[data-mode="flip"] .rd-bar {
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+/* Clean landing space when jumping to any chapter or heading */
+.art-sec[data-id],
+.prose h2 {
+  scroll-margin-top: 112px;
+}
+
+/* Real-time FFT Equalizer bars (disables fake CSS keyframe when live) */
+.nb-wave {
+  height: 18px !important;
+  gap: 3px !important;
+}
+.nb-wave.live i {
+  animation: none !important;
+  opacity: 1 !important;
+  transition: height 0.055s linear;
+}
+/* ==========================================================================
+   14. CONTRAST ISOLATION SHIELD (Editorial Light Theme + Dark Hardware Labs)
+   Prevents chapter --tx (dark ink) from leaking into dark .xp-slot & .dark bands
+   ========================================================================== */
+
+/* 1) Lock ALL interactive labs (.xp-slot & .xp-dialog) to crisp light-on-dark hardware contrast */
+html[data-theme="editorial"] .xp-slot,
+html[data-theme="editorial"] .xp-dialog {
+  --acc: #00e028;
+  --era: #00e028;
+  --era-2: #00b020;
+  --era-soft: rgba(0, 224, 40, 0.14);
+  --era-line: rgba(0, 224, 40, 0.42);
+  --tx: #edf3ef;
+  --soft: #c2cec7;
+  --mute: #92a299;
+  --on-tx: #060807;
+}
+
+html body .xp-slot,
+html body .art-sec[data-id] .xp-slot,
+html body .callout .xp-slot,
+html body .xp-dialog {
+  color: #edf3ef !important;
+}
+
+html body .art-sec[data-id] .prose .xp-slot p,
+html body .art-sec[data-id] .prose .xp-slot li,
+html body .art-sec[data-id] .prose .xp-slot h2,
+html body .art-sec[data-id] .prose .xp-slot h3,
+html body .art-sec[data-id] .prose .xp-slot h4,
+html body .art-sec[data-id] .callout .xp-slot p,
+html body .art-sec[data-id] .callout .xp-slot li,
+html body[data-article] .prose .xp-slot p,
+html body[data-article] .prose .xp-slot li,
+html body[data-article] .prose .xp-slot h2,
+html body[data-article] .prose .xp-slot h3,
+html body[data-article] .callout .xp-slot p,
+html body[data-article] .callout .xp-slot li,
+html body .xp-slot .xp-body p,
+html body .xp-slot .xp-body li,
+html body .xp-slot .xp-body label,
+html body .xp-slot .xp-body dd,
+html body .xp-slot .xp-body td,
+html body .xp-slot .xres,
+html body .xp-slot .tl-det,
+html body .xp-slot .fu-pane,
+html body .xp-slot .pm-trace,
+html body .xp-slot .bl-out span {
+  color: #edf3ef !important;
+}
+
+html body .xp-slot .xp-head p,
+html body .xp-slot .xp-steps,
+html body .xp-slot .bl-sum,
+html body .xp-slot .bytes div,
+html body .xp-slot .xstat,
+html body .xp-slot .bl-sw button {
+  color: #c2cec7 !important;
+}
+
+html body .xp-slot .lb,
+html body .xp-slot .xp-head .mono,
+html body .xp-slot .bytes b,
+html body .xp-slot .bl-out b,
+html body .xp-slot .xstat b,
+html body .xp-slot .tl-det dt,
+html body .xp-slot .tl-det .dt,
+html body .xp-slot .tl-ev b,
+html body .xp-slot .lg-tb th,
+html body .xp-slot .mr-vals b {
+  color: var(--era, #00e028) !important;
+}
+
+/* 2) Lock permanent dark sections (.dark, .hero, .site-f, .cover, .gl-pop) in Editorial theme */
+html[data-theme="editorial"] .dark,
+html[data-theme="editorial"] .hero,
+html[data-theme="editorial"] .site-f,
+html[data-theme="editorial"] .cover,
+html[data-theme="editorial"] .gl-pop {
+  --ink-hi: #f2f5f3;
+  --ink-mid: #b4c0b9;
+  --ink-lo: #7d8b83;
+  --hair: rgba(255, 255, 255, 0.1);
+  --hair-strong: rgba(255, 255, 255, 0.2);
+  color: #f2f5f3;
+}
+html[data-theme="editorial"] .dark h1,
+html[data-theme="editorial"] .dark h2,
+html[data-theme="editorial"] .dark h3,
+html[data-theme="editorial"] .site-f b {
+  color: #f2f5f3 !important;
+}
+html[data-theme="editorial"] .dark p,
+html[data-theme="editorial"] .dark .lead,
+html[data-theme="editorial"] .site-f a {
+  color: #c4d0c9 !important;
+}
+
+/* 3) Clean light-theme surfaces for resume banner, sources, footnotes, listen card & filters */
+html[data-theme="editorial"] .back-note,
+html[data-theme="editorial"] .listen,
+html[data-theme="editorial"] .fn-list,
+html[data-theme="editorial"] .src {
+  background: var(--surf, #eaf0ec) !important;
+  color: var(--tx, #121814) !important;
+  border-color: var(--brd, #c8d4cc) !important;
+}
+html[data-theme="editorial"] .back-note span,
+html[data-theme="editorial"] .listen p,
+html[data-theme="editorial"] .listen h2,
+html[data-theme="editorial"] .fn-list li,
+html[data-theme="editorial"] .src ol,
+html[data-theme="editorial"] .src .nt {
+  color: var(--tx, #121814) !important;
+}
+html[data-theme="editorial"] .listen .ls-note,
+html[data-theme="editorial"] .listen .ls-qr figcaption,
+html[data-theme="editorial"] .fn-list .nt {
+  color: var(--soft, #3a4a40) !important;
+}
+html[data-theme="editorial"] .back-note .btn.ko,
+html[data-theme="editorial"] .listen .btn.ko {
+  color: var(--tx, #121814) !important;
+  border-color: var(--brd, #99aba0) !important;
+}
+/* Hide duplicate legacy read badge from editorial.js */
+.toc-l .ar h3 > span:not(.nb-done-pill) {
+  display: none !important;
+}

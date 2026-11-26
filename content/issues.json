@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "id": "issue-01",
+      "number": 1,
+      "slug": "issue-01",
+      "title": "از صفر و یک تا آینده",
+      "subtitle": "سفر از اولین ایده‌های محاسباتی تا کامپیوترهای امروزی، هوش مصنوعی و آینده محاسبات.",
+      "topic": "تاریخ و تحول کامپیوتر",
+      "categories": [
+        "تاریخ",
+        "سیستم دودویی",
+        "سخت‌افزار",
+        "برنامه‌نویسی",
+        "شبکه",
+        "هوش مصنوعی",
+        "آینده"
+      ],
+      "summary": "سفری از چوب‌خط و چرتکه تا ماشین‌های مکانیکی، صفر و یک، لامپ خلأ، ترانزیستور، برنامه‌نویسی، رایانهٔ شخصی، اینترنت، هوش مصنوعی و سناریوهای آینده. از پایه شروع می‌کنیم تا هر کسی، از کسی که هیچ نمی‌داند تا متخصص، همراه شود.",
+      "publishedAt": null,
+      "status": "published",
+      "featured": true,
+      "latest": true,
+      "special": false,
+      "contentComplete": true
+    },
+    {
+      "id": "issue-02",
+      "number": 2,
+      "slug": "issue-02",
+      "title": "شمارهٔ دوم",
+      "subtitle": "در حال آماده‌سازی",
+      "topic": null,
+      "categories": [],
+      "summary": "موضوع این شماره هنوز اعلام نشده است.",
+      "publishedAt": null,
+      "status": "upcoming",
+      "featured": false,
+      "latest": false,
+      "special": false
+    }
+  ]
+}

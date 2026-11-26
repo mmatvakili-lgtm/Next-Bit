@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-root="../../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سه راه برای شمردن (Counting Choices) | Next Bit</title>
+<meta name="description" content="برای شمردن ۲۵۰۰ قطعه سه راه داری. هر راه را انتخاب کن و ببین در چه شرایطی مناسب‌تر است.">
+<link rel="canonical" href="https://mmatvakili-lgtm.github.io/Next-Bit/experiences/count-choices/">
+<meta property="og:title" content="سه راه برای شمردن (Counting Choices) | Next Bit"><meta property="og:description" content="برای شمردن ۲۵۰۰ قطعه سه راه داری. هر راه را انتخاب کن و ببین در چه شرایطی مناسب‌تر است."><meta property="og:type" content="website"><meta property="og:locale" content="fa_IR"><meta property="og:site_name" content="Next Bit"><meta property="og:url" content="https://mmatvakili-lgtm.github.io/Next-Bit/experiences/count-choices/"><meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A0B0A"><link rel="icon" href="data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20viewBox%3D%220%200%20500%20500%22%20fill%3D%22%23F5F7F3%22%20aria-hidden%3D%22true%22%3E%0A%20%20%3C!--%20Generator%3A%20Adobe%20Illustrator%2030.8.1%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%202.1.4%20Build%201)%20%20--%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20.st0%20%7B%0A%20%20%20%20%20%20%20%20font-family%3A%20MyriadPro-Regular%2C%20'Myriad%20Pro'%3B%0A%20%20%20%20%20%20%20%20font-size%3A%2055.29px%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.st1%20%7B%0A%20%20%20%20%20%20%20%20fill%3A%20%2300b808%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%3C%2Fstyle%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M398.44%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M456.98%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M153.41%2C326.52c-2.87%2C1.77-4.63%2C4.9-4.63%2C8.27v38.77c0%2C7.64%2C8.41%2C12.29%2C14.88%2C8.22l254.82-160.2c2.83-1.78%2C4.54-4.88%2C4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98%2C163.45Z%22%2F%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M288.2%2C81.17L163.63%2C3.49c-6.47-4.03-14.85.62-14.85%2C8.24v38.79c0%2C3.4%2C1.78%2C6.55%2C4.69%2C8.31l133.34%2C80.56c1.97%2C1.19%2C4.49-.23%2C4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M298.21%2C92.74v49.81c0%2C2.31%2C1.21%2C4.45%2C3.18%2C5.64l61.69%2C37.27c2.06%2C1.24%2C4.63%2C1.23%2C6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52%2C2.51Z%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Crect%20x%3D%228.78%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Crect%20x%3D%2299.76%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M315.32%2C3.09l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%0A%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@300..900&display=swap">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/editorial.css">
+<link rel="stylesheet" href="../../assets/studio.css">
+
+</head>
+<body data-mode="reading">
+<a class="skip" href="#main">پرش به محتوا</a>
+<header class="site-h"><div class="in nav">
+<a class="brand" href="../../index.html" aria-label="Next Bit — خانه"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500" fill="#F5F7F3" aria-hidden="true">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 55.29px;
+      }
+
+      .st1 {
+        fill: #00b808;
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M398.44,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path d="M456.98,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path class="st1" d="M153.41,326.52c-2.87,1.77-4.63,4.9-4.63,8.27v38.77c0,7.64,8.41,12.29,14.88,8.22l254.82-160.2c2.83-1.78,4.54-4.88,4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98,163.45Z"/>
+    <g>
+      <path class="st1" d="M288.2,81.17L163.63,3.49c-6.47-4.03-14.85.62-14.85,8.24v38.79c0,3.4,1.78,6.55,4.69,8.31l133.34,80.56c1.97,1.19,4.49-.23,4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z"/>
+      <path class="st1" d="M298.21,92.74v49.81c0,2.31,1.21,4.45,3.18,5.64l61.69,37.27c2.06,1.24,4.63,1.23,6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52,2.51Z"/>
+    </g>
+    <rect x="8.78" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <rect x="99.76" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <path d="M315.32,3.09l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+  </g>
+  
+</svg><b>NEXT BIT</b></a>
+<nav aria-label="ناوبری اصلی"><ul id="nav-list"><li><a href="../../index.html">خانه</a></li><li><a href="../../issues/index.html">شماره‌ها</a></li><li><a href="../../experiences/index.html" aria-current="page">تجربه‌ها</a></li><li><a href="../../issues/issue-01/glossary/index.html">واژه‌نامه</a></li><li><a href="../../about/index.html">درباره</a></li><li><a href="../../search/index.html">جست‌وجو</a></li></ul></nav>
+<div class="nav-tools"><button class="ic-btn" id="motion-btn" type="button" aria-pressed="false" title="کاهش حرکت" aria-label="کاهش حرکت">◐</button><button class="ic-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="منو">☰</button></div>
+</div></header>
+<main id="main">
+<section class="rd-head" data-wm="XP"><div class="in"><div class="kk">EDUCATIONAL QUIZ · ۲ دقیقه · آسان</div><h1>سه راه برای شمردن <span class="mono" style="font-size:.5em;color:var(--green)">Counting Choices</span></h1><p class="sub">برای شمردن ۲۵۰۰ قطعه سه راه داری. هر راه را انتخاب کن و ببین در چه شرایطی مناسب‌تر است.</p></div></section>
+<div class="in" style="padding-block:40px"><div class="prose" style="max-width:960px"><div><h2 style="font-size:22px">راهنمای گام‌به‌گام</h2><ol><li>یک راه را انتخاب کن.</li><li>پاسخ به شرایط بستگی دارد؛ شرایط را تغییر بده و نتیجه را مقایسه کن.</li></ol></div><div class="xp-slot" id="xp-count-choices" data-xp="count-choices" data-title="سه راه برای شمردن"><div class="xp-head"><div><div class="mono">Educational Quiz · آسان · ۲ دقیقه</div><h3>سه راه برای شمردن</h3><p>برای شمردن ۲۵۰۰ قطعه سه راه داری. هر راه را انتخاب کن و ببین در چه شرایطی مناسب‌تر است.</p></div><a href="../../experiences/count-choices/index.html">صفحهٔ کامل تجربه</a></div><div class="xp-body"><noscript><p>برای اجرای این تجربه JavaScript لازم است. متن آموزشی همین بخش بدون آن هم در دسترس است.</p></noscript><div class="xp-load" role="status">در حال آماده‌سازی…</div></div></div>
+<h2 style="font-size:22px">مربوط به</h2><div class="rel"><a href="../../issues/issue-01/before-computers/index.html">فصل صفر: قبل از کامپیوتر، یک مشکل ساده وجود داشت</a><a href="../../experiences/index.html">همهٔ تجربه‌ها</a></div></div></div>
+</main>
+<footer class="site-f"><div class="in"><div class="ft">
+<div><b>Next Bit</b><p>نشریهٔ دانشجویی دیجیتال و تعاملی مهندسی کامپیوتر دانشگاه کاشان</p><p class="muted">دانشگاه کاشان، دانشکدهٔ مهندسی کامپیوتر</p></div>
+<div><b>بخوان</b><a href="../../issues/issue-01/index.html">شمارهٔ اول</a><a href="../../issues/issue-01/read/index.html">مطالعهٔ کامل</a><a href="../../nextbit-issue-01.pdf" download>دانلود PDF مجله</a><a href="../../issues/index.html">آرشیو</a><a href="../../issues/issue-01/glossary/index.html">واژه‌نامه</a><a href="../../issues/issue-01/sources/index.html">منابع</a></div>
+<div><b>تجربه کن</b><a href="../../experiences/index.html">همهٔ تجربه‌ها</a><a href="../../issues/issue-01/start/index.html">از کجا شروع کنیم؟</a><a href="../../search/index.html">جست‌وجو</a></div>
+<div><b>مشارکت</b><a href="../../about/index.html">درباره</a><a href="../../team/index.html">تیم</a><a href="../../submit/index.html">ارسال مقاله</a><a href="../../collaborate/index.html">همکاری</a><a href="../../contact/index.html">تماس</a></div>
+</div><div class="ft-end">NEXT BIT · University of Kashan · static site</div></div></footer>
+<script src="../../assets/app.js" defer></script>
+<script src="../../assets/editorial.js" defer></script>
+<script src="../../assets/studio.js" defer></script>
+
+</body></html>

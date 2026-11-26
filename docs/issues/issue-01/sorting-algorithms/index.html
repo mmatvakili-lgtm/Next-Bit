@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-root="../../../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>یک دقیقه کدنویسی: الگوریتم مرتب‌سازی چیست؟ | Next Bit</title>
+<meta name="description" content="فرض کن این عددها رو داریم:">
+<link rel="canonical" href="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/sorting-algorithms/">
+<meta property="og:title" content="یک دقیقه کدنویسی: الگوریتم مرتب‌سازی چیست؟ | Next Bit"><meta property="og:description" content="فرض کن این عددها رو داریم:"><meta property="og:type" content="article"><meta property="og:locale" content="fa_IR"><meta property="og:site_name" content="Next Bit"><meta property="og:url" content="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/sorting-algorithms/"><meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A0B0A"><link rel="icon" href="data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20viewBox%3D%220%200%20500%20500%22%20fill%3D%22%23F5F7F3%22%20aria-hidden%3D%22true%22%3E%0A%20%20%3C!--%20Generator%3A%20Adobe%20Illustrator%2030.8.1%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%202.1.4%20Build%201)%20%20--%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20.st0%20%7B%0A%20%20%20%20%20%20%20%20font-family%3A%20MyriadPro-Regular%2C%20'Myriad%20Pro'%3B%0A%20%20%20%20%20%20%20%20font-size%3A%2055.29px%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.st1%20%7B%0A%20%20%20%20%20%20%20%20fill%3A%20%2300b808%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%3C%2Fstyle%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M398.44%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M456.98%2C328.94l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M153.41%2C326.52c-2.87%2C1.77-4.63%2C4.9-4.63%2C8.27v38.77c0%2C7.64%2C8.41%2C12.29%2C14.88%2C8.22l254.82-160.2c2.83-1.78%2C4.54-4.88%2C4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98%2C163.45Z%22%2F%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M288.2%2C81.17L163.63%2C3.49c-6.47-4.03-14.85.62-14.85%2C8.24v38.79c0%2C3.4%2C1.78%2C6.55%2C4.69%2C8.31l133.34%2C80.56c1.97%2C1.19%2C4.49-.23%2C4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20class%3D%22st1%22%20d%3D%22M298.21%2C92.74v49.81c0%2C2.31%2C1.21%2C4.45%2C3.18%2C5.64l61.69%2C37.27c2.06%2C1.24%2C4.63%2C1.23%2C6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52%2C2.51Z%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Crect%20x%3D%228.78%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Crect%20x%3D%2299.76%22%20y%3D%22169.8%22%20width%3D%2284.06%22%20height%3D%2243.43%22%20rx%3D%223.33%22%20ry%3D%223.33%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M315.32%2C3.09l15.49.02c9.96.01%2C18.03%2C8.1%2C18.03%2C18.06v16.32c0%2C9.98-8.1%2C18.07-18.09%2C18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98%2C8.1-18.07%2C18.09-18.06Z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%0A%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@300..900&display=swap">
+<link rel="stylesheet" href="../../../assets/styles.css">
+<link rel="stylesheet" href="../../../assets/editorial.css">
+<link rel="stylesheet" href="../../../assets/studio.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"یک دقیقه کدنویسی: الگوریتم مرتب‌سازی چیست؟","inLanguage":"fa","isPartOf":{"@type":"PublicationIssue","issueNumber":1,"name":"از صفر و یک تا آینده"}}</script>
+</head>
+<body data-mode="reading" data-article="sp-3">
+<a class="skip" href="#main">پرش به محتوا</a>
+<header class="site-h"><div class="in nav">
+<a class="brand" href="../../../index.html" aria-label="Next Bit — خانه"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500" fill="#F5F7F3" aria-hidden="true">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 55.29px;
+      }
+
+      .st1 {
+        fill: #00b808;
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M398.44,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path d="M456.98,328.94l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+    <path class="st1" d="M153.41,326.52c-2.87,1.77-4.63,4.9-4.63,8.27v38.77c0,7.64,8.41,12.29,14.88,8.22l254.82-160.2c2.83-1.78,4.54-4.88,4.54-8.22v-42.72c0-2.97-1.36-5.74-3.64-7.57l-265.98,163.45Z"/>
+    <g>
+      <path class="st1" d="M288.2,81.17L163.63,3.49c-6.47-4.03-14.85.62-14.85,8.24v38.79c0,3.4,1.78,6.55,4.69,8.31l133.34,80.56c1.97,1.19,4.49-.23,4.49-2.53v-50.1c0-2.28-1.17-4.39-3.1-5.59Z"/>
+      <path class="st1" d="M298.21,92.74v49.81c0,2.31,1.21,4.45,3.18,5.64l61.69,37.27c2.06,1.24,4.63,1.23,6.68-.02l43.15-26.5-110.17-68.71c-1.97-1.23-4.52.19-4.52,2.51Z"/>
+    </g>
+    <rect x="8.78" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <rect x="99.76" y="169.8" width="84.06" height="43.43" rx="3.33" ry="3.33"/>
+    <path d="M315.32,3.09l15.49.02c9.96.01,18.03,8.1,18.03,18.06v16.32c0,9.98-8.1,18.07-18.09,18.06l-15.49-.02c-9.96-.01-18.03-8.1-18.03-18.06v-16.32c0-9.98,8.1-18.07,18.09-18.06Z"/>
+  </g>
+  
+</svg><b>NEXT BIT</b></a>
+<nav aria-label="ناوبری اصلی"><ul id="nav-list"><li><a href="../../../index.html">خانه</a></li><li><a href="../../../issues/index.html" aria-current="page">شماره‌ها</a></li><li><a href="../../../experiences/index.html">تجربه‌ها</a></li><li><a href="../../../issues/issue-01/glossary/index.html">واژه‌نامه</a></li><li><a href="../../../about/index.html">درباره</a></li><li><a href="../../../search/index.html">جست‌وجو</a></li></ul></nav>
+<div class="nav-tools"><button class="ic-btn" id="motion-btn" type="button" aria-pressed="false" title="کاهش حرکت" aria-label="کاهش حرکت">◐</button><button class="ic-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="منو">☰</button></div>
+</div></header>
+<main id="main">
+<div class="rd-bar" id="rd-bar"><div class="in rd-in"><a class="b" href="../../../issues/issue-01/index.html">← فهرست شماره</a>
+<div class="md" role="group" aria-label="حالت مطالعه"><a class="b" style="border:0;padding:0 14px;color:var(--green)" href="../../../issues/issue-01/read/index.html#flipbook">Flipbook</a><button type="button" data-mode="reading" aria-pressed="true">مطالعهٔ مدرن</button><button type="button" data-mode="interactive" aria-pressed="false">تعاملی</button></div>
+<div class="md" role="group" aria-label="اندازهٔ متن"><button type="button" data-fs="-1" aria-label="کوچک‌تر کردن متن">A−</button><button type="button" data-fs="1" aria-label="بزرگ‌تر کردن متن">A+</button></div></div><div class="prog" aria-hidden="true"><i id="prog-i"></i></div></div>
+<section class="rd-head" data-min="1" data-wm="SP"><div class="in"><div class="kk">SPECIAL 03 · ۱ دقیقه</div><p class="sub" style="margin:0 0 8px">پرونده ویژه سوم</p><h1>یک دقیقه کدنویسی: الگوریتم مرتب‌سازی چیست؟</h1></div></section>
+<div class="in rd-body"><aside class="rd-toc" aria-label="فهرست این بخش"><b>CONTENTS</b><a href="#sp-3-s1">آیا این بهترین روش است؟</a><a href="#sp-3-c1">تجربه تعاملی</a></aside>
+<article class="prose" lang="fa"><div class="back-note"><span>حالت «تعاملی» فقط تجربه‌های این بخش را نشان می‌دهد.</span><button class="btn sm ko" type="button" data-mode="reading">بازگشت به متن</button></div>
+<div class="intro"><p>فرض کن این عددها رو داریم:</p></div><p class="ex fa" dir="rtl">۷، ۲، ۹، ۱، ۵</p>
+<p>می‌خوایم اون‌ها رو از کوچک به بزرگ مرتب کنیم.</p>
+<p>یکی از روش‌های ساده، <bdi class="en" dir="ltr">Bubble Sort</bdi> است.</p>
+<p>در این روش، عناصر مجاور با هم مقایسه می‌شن و اگر ترتیبشون اشتباه باشه، جابه‌جا می‌شن.</p>
+<p>این فرایند چند بار تکرار می‌شه تا آرایه مرتب بشه.</p>
+<h2 id="sp-3-s1">آیا این بهترین روش است؟</h2>
+<p>برای یادگیری، <bdi class="en" dir="ltr">Bubble Sort</bdi> روش ساده‌ایه.</p>
+<p>اما برای فهرست‌های بزرگ، معمولاً <span class="gl-w">الگوریتم</span><a class="gl-ref" href="../../../issues/issue-01/glossary/index.html#gl-0" data-term="الگوریتم" data-def="مجموعه‌ای از مراحل مشخص برای حل یک مسئله." aria-label="تعریف «الگوریتم» در واژه‌نامه" title="واژه‌نامه: الگوریتم"><i aria-hidden="true">i</i></a>‌های کارآمدتری وجود دارن.</p>
+<p>برای نمونه، <bdi class="en" dir="ltr">Merge Sort</bdi> و <bdi class="en" dir="ltr">Quick Sort</bdi> در شرایط مناسب می‌تونن برای داده‌های بزرگ عملکرد بهتری داشته باشن.</p>
+<p>با این حال، عملکرد واقعی به شرایط اجرا، نوع داده و پیاده‌سازی وابسته است.</p>
+<aside class="callout lab has-xp" id="sp-3-c1" data-kind="lab"><h3>تجربه تعاملی</h3><p>عددهای دلخواهت رو وارد کن.</p>
+<p><bdi class="en" dir="ltr">Bubble Sort</bdi> رو اجرا کن و تعداد مقایسه‌ها و جابه‌جایی‌ها رو ببین.</p>
+<p>بعد همون ورودی رو با الگوریتم دیگری مرتب کن.</p>
+<p>آیا تعداد عملیات یکسان بود؟</p>
+<p>چرا؟</p><div class="xp-slot" id="xp-sorting-visualizer" data-xp="sorting-visualizer" data-title="نمایشگر مرتب‌سازی"><div class="xp-head"><div><div class="mono">Algorithm Visualizer · آسان · ۸ دقیقه</div><h3>نمایشگر مرتب‌سازی</h3><p>یک آرایه را با <bdi class="en" dir="ltr">Bubble Sort</bdi> یا <bdi class="en" dir="ltr">Insertion Sort</bdi> قدم‌به‌قدم مرتب کن. مقایسه‌ها و جابه‌جایی‌ها را بشمار و سرعت را خودت تنظیم کن.</p></div><a href="../../../experiences/sorting-visualizer/index.html">صفحهٔ کامل تجربه</a></div><div class="xp-body"><noscript><p>برای اجرای این تجربه JavaScript لازم است. متن آموزشی همین بخش بدون آن هم در دسترس است.</p></noscript><div class="xp-load" role="status">در حال آماده‌سازی…</div></div></div></aside><section class="listen src-hide" id="listen-sp-3" data-art="sp-3" data-title="یک دقیقه کدنویسی: الگوریتم مرتب‌سازی چیست؟" data-audio="../../../audio/sorting-algorithms.mp3" aria-label="نسخهٔ صوتی"><div class="ls-main"><div class="kk mono">PODCAST · LISTEN</div><h2 class="ls-h">نسخهٔ صوتی این بخش</h2><p class="ls-p">اگر حوصلهٔ خوندن نداری، همین بخش رو به‌صورت صوتی گوش بده.</p><div class="nb-ap-mount"></div><details class="ls-alt"><summary>گویندهٔ خودکار مرورگر (جایگزین)</summary><div class="ls-ctl"><button type="button" class="btn sm" data-listen="play">▶ گوش بده</button><button type="button" class="btn sm ko" data-listen="pause" disabled>⏸ مکث</button><button type="button" class="btn sm ko" data-listen="stop" disabled>■ توقف</button><label class="ls-rate">سرعت <select data-listen-rate aria-label="سرعت گفتار"><option value="0.85">آهسته</option><option value="1" selected>عادی</option><option value="1.2">سریع</option><option value="1.5">خیلی سریع</option></select></label></div></details></div><figure class="ls-qr"><div data-qr="https://mmatvakili-lgtm.github.io/Next-Bit/issues/issue-01/sorting-algorithms/index.html#listen-sp-3"></div><figcaption>با گوشی اسکن کن؛ همین بخش باز می‌شه تا گوش بدی.</figcaption></figure></section>
+<section class="src" aria-labelledby="sp-3-src"><h2 id="sp-3-src">منابع پیشنهادی برای راستی‌آزمایی</h2><p class="nt">متن این بخش ارجاع درون‌متنی ندارد؛ فهرست زیر نقطهٔ شروع بررسی تحریریه است، نه تأیید ادعاهای تک‌تک جمله‌ها. برای این بخش هنوز منبع مشخصی ثبت نشده است؛ <a href="../../../issues/issue-01/sources/index.html">فهرست عمومی منابع شماره</a></p></section>
+<section class="src-hide"><h2 style="font-size:22px;margin:2em 0 .4em">ادامه بده</h2><div class="rel"><a href="../../../issues/issue-01/first-programs/index.html">مرتبط: اولین برنامه‌ها</a></div></section>
+<nav class="pn-nav src-hide" aria-label="قبلی و بعدی"><a href="../../../issues/issue-01/glossary/index.html"><small>NEXT →</small><b>واژه‌نامه زنده</b></a><a href="../../../issues/issue-01/cpu-vs-gpu/index.html" rel="prev"><small>← PREVIOUS</small><b>نبرد فناوری‌ها: <bdi class="en" dir="ltr">CPU</bdi> یا <bdi class="en" dir="ltr">GPU</bdi>؟</b></a></nav>
+</article></div>
+</main>
+<footer class="site-f"><div class="in"><div class="ft">
+<div><b>Next Bit</b><p>نشریهٔ دانشجویی دیجیتال و تعاملی مهندسی کامپیوتر دانشگاه کاشان</p><p class="muted">دانشگاه کاشان، دانشکدهٔ مهندسی کامپیوتر</p></div>
+<div><b>بخوان</b><a href="../../../issues/issue-01/index.html">شمارهٔ اول</a><a href="../../../issues/issue-01/read/index.html">مطالعهٔ کامل</a><a href="../../../nextbit-issue-01.pdf" download>دانلود PDF مجله</a><a href="../../../issues/index.html">آرشیو</a><a href="../../../issues/issue-01/glossary/index.html">واژه‌نامه</a><a href="../../../issues/issue-01/sources/index.html">منابع</a></div>
+<div><b>تجربه کن</b><a href="../../../experiences/index.html">همهٔ تجربه‌ها</a><a href="../../../issues/issue-01/start/index.html">از کجا شروع کنیم؟</a><a href="../../../search/index.html">جست‌وجو</a></div>
+<div><b>مشارکت</b><a href="../../../about/index.html">درباره</a><a href="../../../team/index.html">تیم</a><a href="../../../submit/index.html">ارسال مقاله</a><a href="../../../collaborate/index.html">همکاری</a><a href="../../../contact/index.html">تماس</a></div>
+</div><div class="ft-end">NEXT BIT · University of Kashan · static site</div></div></footer>
+<script src="../../../assets/app.js" defer></script>
+<script src="../../../assets/editorial.js" defer></script>
+<script src="../../../assets/studio.js" defer></script>
+<script src="../../../assets/qr.js" defer></script>
+<script src="../../../assets/pron.js" defer></script>
+<script src="../../../assets/listen.js" defer></script>
+</body></html>

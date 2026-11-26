@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mmatvakili-lgtm.github.io/Next-Bit/sitemap.xml
