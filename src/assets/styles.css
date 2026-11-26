@@ -3630,3 +3630,304 @@ body {
     max-width: 100%;
   }
 }
+/* ==========================================================================
+   15. MOBILE-FIRST INTERACTIVE & LABS RESPONSIVE OVERHAUL
+   Eliminates horizontal overflow, nested padding crush & cramped touch UI
+   ========================================================================== */
+html,
+body {
+  overflow-x: clip;
+}
+.rd-body > *,
+.prose,
+.art-sec,
+.callout,
+.xp-slot,
+.xp-body,
+.xp-body > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Fix grids that used fixed 260px-300px minimums */
+.xh {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(280px, 100%), 1fr)
+  ) !important;
+}
+.xgrid2 {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(240px, 100%), 1fr)
+  ) !important;
+}
+
+@media (max-width: 720px) {
+  /* 1) Flatten nested paddings in Interactive Mode so labs get full phone width */
+  body[data-mode="interactive"] .in {
+    padding-inline: 10px !important;
+  }
+  body[data-mode="interactive"] .rd-body {
+    padding-block: 16px 32px !important;
+    gap: 16px !important;
+  }
+  body[data-mode="interactive"] .art-sec[data-id] {
+    padding: 14px 10px !important;
+    margin-bottom: 18px !important;
+    border-inline: 0 !important;
+  }
+  body[data-mode="interactive"] .callout.has-xp {
+    padding: 12px 10px !important;
+    margin-top: 12px !important;
+  }
+  body[data-mode="interactive"] .back-note {
+    padding: 12px 14px !important;
+    margin-bottom: 14px !important;
+    font-size: 13.5px;
+    gap: 10px;
+  }
+  body[data-mode="interactive"] .back-note .btn {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  /* Also optimize Modern Reading & standalone experience pages on mobile */
+  .art-sec[data-id] {
+    padding: 18px 14px !important;
+  }
+  .callout {
+    padding: 16px 14px !important;
+  }
+
+  /* 2) Clean Mobile Lab Frame (.xp-slot) */
+  .xp-slot {
+    margin-top: 1.2em !important;
+    margin-inline: 0 !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+    width: 100% !important;
+  }
+  .xp-head {
+    padding: 14px !important;
+    gap: 10px !important;
+  }
+  .xp-head h3 {
+    font-size: 18px !important;
+  }
+  .xp-head p {
+    font-size: 13.5px !important;
+    line-height: 1.75 !important;
+  }
+  .xp-head a {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+  }
+  .xp-body {
+    padding: 14px 12px !important;
+  }
+  .xp-body p,
+  .xres {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    overflow-wrap: anywhere;
+  }
+  .xres {
+    padding: 12px 14px !important;
+  }
+
+  /* 3) Full-Width, Thumb-Friendly Controls (.xp-ctl, select, input, buttons) */
+  .xp-ctl {
+    padding: 8px !important;
+    gap: 8px !important;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .xp-ctl .xin,
+  .xp-ctl .xsel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    font-size: 14px !important;
+    text-overflow: ellipsis;
+  }
+  .xp-ctl .xbtn {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 110px;
+    min-height: 44px !important;
+    padding: 6px 10px !important;
+    font-size: 13.5px !important;
+    text-align: center;
+  }
+  .xp-ctl label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13.5px;
+  }
+  .xrange {
+    flex: 1;
+    min-width: 0 !important;
+  }
+
+  /* 4) Bit Lab: 2 clean rows of 4 tactile switches (Nibbles) instead of squashed 8-in-1 row */
+  .bl-sw {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .bl-k {
+    height: 62px !important;
+    font-size: 24px !important;
+  }
+  .bl-out {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .bl-out div {
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .bl-out span {
+    font-size: 18px !important;
+  }
+  .bl-sum {
+    font-size: 12.5px !important;
+    padding: 10px 12px !important;
+    overflow-x: auto;
+  }
+  .bytes {
+    gap: 6px !important;
+  }
+  .bytes div {
+    font-size: 11.5px !important;
+    padding: 5px 8px !important;
+  }
+
+  /* 5) Logic Lab: Compact diagram + scrollable truth table */
+  .lg-g {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 12px 0 !important;
+  }
+  .lg-in {
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+  .lg-sw {
+    min-width: 68px !important;
+    min-height: 44px !important;
+    font-size: 13.5px !important;
+  }
+  .lg-out {
+    width: 58px !important;
+    height: 58px !important;
+    font-size: 26px !important;
+  }
+  .lg-tb {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    font-size: 13px !important;
+  }
+  .lg-tb th,
+  .lg-tb td {
+    padding: 6px 12px !important;
+  }
+
+  /* 6) Chip Factory & Request Journey: Clean compact nodes */
+  .cf-fig {
+    gap: 8px !important;
+    padding: 12px 0 !important;
+  }
+  .cf-t {
+    width: 74px !important;
+    height: 74px !important;
+    font-size: 11px !important;
+    padding: 4px;
+  }
+  .cf-wire {
+    width: 18px !important;
+  }
+
+  /* 7) Program Machine: Prevent instruction row & buttons from overflowing */
+  .pm-list li {
+    gap: 6px !important;
+    padding: 8px !important;
+    min-height: 48px !important;
+  }
+  .pm-list li .t {
+    font-size: 13.5px !important;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .pm-list button {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 14px !important;
+    flex: none;
+  }
+  .pm-trace {
+    font-size: 12px !important;
+    overflow-x: auto;
+  }
+
+  /* 8) Machine Room, Sorting Visualizer, ML Playground & Choices */
+  .mr {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .mr button {
+    min-height: 74px !important;
+    padding: 10px 8px !important;
+    font-size: 13.5px !important;
+  }
+  .so-bars {
+    height: 190px !important;
+    gap: 3px !important;
+  }
+  .so-bar span {
+    font-size: 9.5px !important;
+  }
+  .xstat {
+    gap: 14px !important;
+  }
+  .xstat b {
+    font-size: 18px !important;
+  }
+  .cc button {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+  }
+  .xp-body svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 9) Mobile Reader Toolbar (.rd-bar) & Mode Switcher */
+  .rd-in {
+    justify-content: center !important;
+    gap: 8px !important;
+    padding-block: 6px !important;
+  }
+  .rd-bar .md {
+    max-width: 100%;
+  }
+  .rd-bar .md button,
+  .rd-bar .md a.b {
+    padding: 4px 11px !important;
+    font-size: 12.5px !important;
+    min-height: 36px !important;
+  }
+
+  /* 10) Experience Dialog inside Flipbook on mobile */
+  .xp-dialog {
+    width: calc(100vw - 12px) !important;
+    max-width: none !important;
+    max-height: 92dvh !important;
+    margin: auto;
+  }
+  .xp-dialog .xp-slot {
+    margin: 0 6px 10px !important;
+  }
+}

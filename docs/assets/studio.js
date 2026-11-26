@@ -1739,4 +1739,70 @@
       return startNow();
     };
   })();
+  /* ---------- 13. Zero-Loss Speed Engine (Service Worker + Hover Prefetch) ---------- */
+  // A) Register Service Worker at site root for instant repeat loads
+  if ("serviceWorker" in navigator && location.protocol !== "file:") {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register(root + "sw.js").catch(function () {});
+    });
+  }
+
+  // B) Prefetch next chapter HTML on pointer hover (zero quality loss, instant navigation)
+  var prefetched = {};
+  document.addEventListener(
+    "pointerover",
+    function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a) return;
+      var href = a.getAttribute("href");
+      if (
+        !href ||
+        href[0] === "#" ||
+        /^https?:|mailto:|tel:/i.test(href) ||
+        /\.pdf$/i.test(href)
+      )
+        return;
+      var abs = "";
+      try {
+        abs = new URL(href, location.href).href;
+      } catch (err) {
+        return;
+      }
+      if (prefetched[abs] || abs === location.href) return;
+      prefetched[abs] = true;
+      var link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = abs;
+      document.head.appendChild(link);
+    },
+    { passive: true },
+  );
+
+  // C) Pre-warm podcast audio file in cache when hovering play/podcast buttons
+  var warmedAudio = {};
+  document.addEventListener(
+    "pointerover",
+    function (e) {
+      var btn =
+        e.target.closest && e.target.closest(".nb-ap-play, .nb-pod-btn");
+      if (!btn) return;
+      var box = btn.closest(".nb-ap") || document.body;
+      var slug =
+        btn.getAttribute("data-slug") || (box && box.getAttribute("data-slug"));
+      if (!slug) {
+        var art = btn.closest(".art-sec[data-slug]");
+        if (art) slug = art.getAttribute("data-slug");
+      }
+      if (!slug) {
+        var m = location.pathname.match(/\/issues\/issue-01\/([^/]+)\//);
+        if (m && m[1] !== "read") slug = m[1];
+      }
+      if (!slug || warmedAudio[slug]) return;
+      warmedAudio[slug] = true;
+      fetch(root + "audio/" + slug + ".mp3", { cache: "force-cache" }).catch(
+        function () {},
+      );
+    },
+    { passive: true },
+  );
 })();

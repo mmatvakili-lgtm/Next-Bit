@@ -20,6 +20,8 @@ if (fs.existsSync("content/issue-01/nextbit-issue-01-dark.pdf")) {
     path.join(OUT, "nextbit-issue-01-dark.pdf"),
   );
 }
+if (fs.existsSync("src/sw.js"))
+  fs.copyFileSync("src/sw.js", path.join(OUT, "sw.js"));
 
 fs.rmSync(OUT, { recursive: true, force: true });
 const write = (p, s) => {
