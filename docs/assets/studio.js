@@ -1805,4 +1805,97 @@
     },
     { passive: true },
   );
+  /* ---------- 14. Split Technical Binary-First Auxiliary Numerals ---------- */
+  function faToEn(str) {
+    return String(str || "").replace(/[۰-۹]/g, function (d) {
+      return String("۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+    });
+  }
+
+  function toBinStr(n, bits) {
+    return Math.max(0, parseInt(n, 10) || 0)
+      .toString(2)
+      .padStart(bits || 4, "0");
+  }
+
+  function makeBinMarkup(bin, dec, stacked) {
+    return (
+      '<span class="nb-bin-unit' +
+      (stacked ? " is-stacked" : "") +
+      '" dir="ltr" title="' +
+      dec +
+      " = " +
+      bin +
+      '₂">' +
+      '<span class="nb-bin-main">' +
+      bin +
+      "</span>" +
+      '<span class="nb-bin-dec">' +
+      dec +
+      "</span></span>"
+    );
+  }
+
+  function applyBinaryNumerals() {
+    // 1) Issue 01 TOC chapter badges (including Editorial -> 0000 | ED)
+    $$(".toc-l .ar[data-aid] .n").forEach(function (el) {
+      if (el.getAttribute("data-bin-done")) return;
+      var aid = el.closest(".ar").getAttribute("data-aid") || "";
+      var raw = faToEn(el.textContent.trim());
+      var bin = "",
+        dec = raw;
+      if (aid === "ed" || raw === "ED" || raw === "—" || raw === "-") {
+        bin = "0000";
+        dec = "ED";
+      } else if (/^\d+$/.test(raw)) {
+        bin = toBinStr(raw, 4);
+        dec = raw.padStart(2, "0");
+      } else if (/^SP-(\d+)$/i.test(raw)) {
+        bin = "SP·" + toBinStr(RegExp.$1, 2);
+        dec = raw.toUpperCase();
+      } else {
+        return;
+      }
+      el.setAttribute("data-bin-done", "1");
+      el.innerHTML = makeBinMarkup(bin, dec, true);
+    });
+
+    // 2) Reading time badges in TOC (۲ MIN, ۴ MIN, ۵ MIN -> 0010 | 2 MIN, 0100 | 4 MIN, ...)
+    $$(".toc-l .ar .mt").forEach(function (el) {
+      if (el.getAttribute("data-bin-done")) return;
+      var txt = faToEn(el.textContent.trim());
+      var m = txt.match(/^(\d+)\s*MIN$/i);
+      if (!m) return;
+      var num = parseInt(m[1], 10);
+      el.setAttribute("data-bin-done", "1");
+      el.innerHTML =
+        '<span class="nb-min-chip" dir="ltr" title="' +
+        num +
+        ' دقیقه مطالعه">' +
+        '<span class="nb-bin-main">' +
+        toBinStr(num, 4) +
+        "</span>" +
+        '<span class="nb-bin-dec">' +
+        num +
+        "</span>" +
+        '<span class="nb-min-lbl">MIN</span>' +
+        "</span>";
+    });
+
+    // 3) Cover / Archive "ISSUE 01" labels
+    $$(".cover .kk, .cd .cv .kk").forEach(function (el) {
+      if (el.getAttribute("data-bin-done")) return;
+      var m = faToEn(el.textContent).match(/ISSUE\s+(\d+)/i);
+      if (!m) return;
+      el.setAttribute("data-bin-done", "1");
+      el.innerHTML = el.textContent.replace(
+        /ISSUE\s+[\d۰-۹]+/i,
+        "ISSUE " +
+          makeBinMarkup(toBinStr(m[1], 4), m[1].padStart(2, "0"), false),
+      );
+    });
+  }
+
+  applyBinaryNumerals();
+  window.addEventListener("load", applyBinaryNumerals);
 })();

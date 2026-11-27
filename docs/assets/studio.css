@@ -3,6 +3,7 @@
    Zero generic SaaS clichés. Architectural 1px hairlines, analog grain,
    3D foil cover, hover-reveal archival index, tactile hardware labs.
    ========================================================================== */
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-FD-font-face.css");
 
 :root {
   --era: #00d924;
@@ -2174,4 +2175,615 @@ html[data-theme="editorial"] .listen .btn.ko {
 /* Hide duplicate legacy read badge from editorial.js */
 .toc-l .ar h3 > span:not(.nb-done-pill) {
   display: none !important;
+}
+/* ==========================================================================
+   16. REFINED EDITORIAL CRAFT & TACTILE DEPTH — ALL PAGES
+   Fixes Persian digits in mono/meta labels, removes AI-glossy buttons,
+   syncs chapter number badges, and applies subtle multi-layer 3D depth.
+   ========================================================================== */
+
+:root {
+  --mono: "JetBrains Mono", "Vazirmatn", ui-monospace, monospace !important;
+  --sh-sm: 0 1px 2px rgba(0, 0, 0, 0.24), 0 4px 12px rgba(0, 0, 0, 0.16);
+  --sh-md: 0 2px 4px rgba(0, 0, 0, 0.22), 0 10px 26px rgba(0, 0, 0, 0.24);
+  --sh-lg: 0 4px 8px rgba(0, 0, 0, 0.26), 0 20px 44px rgba(0, 0, 0, 0.34);
+  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --recess:
+    inset 0 1px 3px rgba(0, 0, 0, 0.36),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="editorial"] {
+  --sh-sm: 0 1px 2px rgba(15, 23, 18, 0.05), 0 4px 10px rgba(15, 23, 18, 0.04);
+  --sh-md: 0 2px 6px rgba(15, 23, 18, 0.06), 0 12px 24px rgba(15, 23, 18, 0.06);
+  --sh-lg: 0 4px 10px rgba(15, 23, 18, 0.08), 0 22px 42px rgba(15, 23, 18, 0.1);
+  --edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --recess:
+    inset 0 1px 3px rgba(15, 23, 18, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Fix Persian digits inside .mt / .meta / TOC labels (no more tiny Tahoma fallback) */
+.toc-l .ar .mt,
+.xcard .mt,
+.meta div,
+.nb-prog-top,
+.rd-head .kk {
+  font-family: var(--fa), var(--mono) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 1) Clean, Grounded Atmospheric Headers (Zero Garish Gradients) */
+.hero {
+  background:
+    radial-gradient(
+      700px 400px at 18% 22%,
+      rgba(0, 201, 35, 0.09),
+      transparent 64%
+    ),
+    linear-gradient(180deg, #070a08 0%, #0b100d 100%) !important;
+  animation: none !important;
+}
+section.dark:not(.hero) {
+  background:
+    radial-gradient(
+      600px 320px at 16% 24%,
+      color-mix(in srgb, var(--acc, #00c923) 9%, transparent),
+      transparent 65%
+    ),
+    linear-gradient(180deg, #080c0a 0%, #0d120f 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+body[data-article] .rd-head {
+  background:
+    radial-gradient(
+      560px 300px at 16% 20%,
+      color-mix(in srgb, var(--acc) 10%, transparent),
+      transparent 64%
+    ),
+    var(--surf) !important;
+  animation: none !important;
+}
+
+/* 2) Precision Frosted Header & Reader Bar */
+.site-h {
+  background: rgba(8, 11, 9, 0.84) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22) !important;
+}
+.rd-bar {
+  background: color-mix(
+    in srgb,
+    var(--surf, #0d120f) 88%,
+    transparent
+  ) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 3) Authentic Modern Buttons (Stripe / Linear Craft — Zero Plastic Gloss) */
+.btn,
+.xbtn {
+  border-radius: 10px !important;
+  padding: 10px 22px !important;
+  min-height: 46px;
+  font-weight: 700 !important;
+  background: var(--acc, var(--era)) !important;
+  color: var(--on-tx, #060d08) !important;
+  border: 1px solid color-mix(in srgb, var(--acc, var(--era)) 82%, #000000) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 2px 0 color-mix(in srgb, var(--acc, var(--era)) 65%, #000000),
+    0 6px 16px
+      color-mix(in srgb, var(--acc, var(--era)) 20%, rgba(0, 0, 0, 0.18)) !important;
+  transition:
+    transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.16s ease,
+    filter 0.16s ease,
+    background 0.16s ease !important;
+}
+.btn::before,
+.xbtn::before {
+  display: none !important;
+}
+.btn:hover,
+.xbtn:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28) inset,
+    0 3px 0 color-mix(in srgb, var(--acc, var(--era)) 65%, #000000),
+    0 10px 22px
+      color-mix(in srgb, var(--acc, var(--era)) 26%, rgba(0, 0, 0, 0.22)) !important;
+}
+.btn:active,
+.xbtn:active:not(:disabled) {
+  transform: translateY(1.5px) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Secondary Buttons: Crisp Paper/Slate Surface with Subtle 1px Edge */
+.btn.o,
+.btn.ko,
+.xbtn.o {
+  background: var(--panel) !important;
+  color: var(--ink-hi) !important;
+  border: 1px solid var(--hair-strong) !important;
+  box-shadow: var(--edge-hi), var(--sh-sm) !important;
+}
+.dark .btn.o,
+.hero .btn.o {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #edf2ef !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 14px rgba(0, 0, 0, 0.28) !important;
+}
+.btn.o:hover,
+.btn.ko:hover,
+.xbtn.o:hover:not(:disabled) {
+  background: var(--panel-2) !important;
+  border-color: var(--acc, var(--era)) !important;
+  color: var(--acc, var(--era)) !important;
+  box-shadow: var(--edge-hi), var(--sh-md) !important;
+}
+.dark .btn.o:hover,
+.hero .btn.o:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Recessed Switcher Trays (Subtle Machined Depth) */
+.md,
+.nb-fb-seg,
+.xp-ctl {
+  border-radius: 12px !important;
+  padding: 3px !important;
+  box-shadow: var(--recess) !important;
+}
+.md button,
+.rd-bar .md a.b,
+.nb-fb-seg button,
+.nb-fb-tbtn,
+.nb-mini-link,
+.ic-btn,
+.nb-hdr-btn {
+  border-radius: 8px !important;
+}
+.md button[aria-pressed="true"],
+.nb-fb-seg button[aria-pressed="true"] {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24) !important;
+}
+
+/* 4) Subtle Tactile 3D Cards Across Home, Experiences, Glossary & Team */
+.cards,
+.xh {
+  gap: 18px !important;
+  border: 0 !important;
+}
+.xcard,
+.xh a {
+  border-radius: 14px !important;
+  border: 1px solid var(--hair) !important;
+  background: var(--panel) !important;
+  box-shadow: var(--edge-hi), var(--sh-sm) !important;
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    border-color 0.18s ease !important;
+  animation: none !important;
+}
+.xcard:hover,
+.xh a:hover {
+  transform: translateY(-3px) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--acc, var(--era)) 55%,
+    var(--hair-strong)
+  ) !important;
+  box-shadow: var(--edge-hi), var(--sh-md) !important;
+}
+.nb-card-thumb {
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+.nb-card-thumb img {
+  object-position: center 20%;
+}
+
+/* 5) Issue 01 Chapter Index: Fix Chapter Number Badge to Match Each Chapter's Own Color! */
+.toc-l {
+  border-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px !important;
+}
+.toc-l .ar {
+  border: 1px solid var(--hair) !important;
+  border-inline-start: 4px solid var(--row-acc, var(--era)) !important;
+  border-radius: 14px !important;
+  background: var(--panel) !important;
+  padding: 16px 18px !important;
+  box-shadow: var(--edge-hi), var(--sh-sm);
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    border-color 0.18s,
+    opacity 0.18s !important;
+}
+.toc-l .ar[data-aid] .n {
+  background: color-mix(
+    in srgb,
+    var(--row-acc, var(--era)) 12%,
+    var(--panel-2)
+  ) !important;
+  border: 1px solid
+    color-mix(in srgb, var(--row-acc, var(--era)) 38%, transparent) !important;
+  color: var(--row-acc, var(--era)) !important;
+  border-radius: 9px !important;
+  padding: 6px 0 !important;
+  text-align: center;
+}
+.toc-l .ar[data-aid] .nb-done-pill {
+  border-color: color-mix(
+    in srgb,
+    var(--row-acc, var(--era)) 38%,
+    transparent
+  ) !important;
+  background: color-mix(
+    in srgb,
+    var(--row-acc, var(--era)) 11%,
+    transparent
+  ) !important;
+  color: var(--row-acc, var(--era)) !important;
+}
+.toc-l .ar:hover {
+  transform: translateX(-4px);
+  border-color: var(--row-acc, var(--era)) !important;
+  box-shadow: var(--edge-hi), var(--sh-md);
+}
+
+/* 6) 3D Physical Magazine Stack on Home Cover & Issues Archive (/issues/) */
+.cover {
+  border-radius: 12px !important;
+  box-shadow:
+    -4px 4px 0 rgba(255, 255, 255, 0.04),
+    -8px 8px 0 rgba(0, 0, 0, 0.35),
+    -18px 26px 48px rgba(0, 0, 0, 0.48),
+    inset 4px 0 0 rgba(255, 255, 255, 0.08) !important;
+}
+.gr {
+  gap: 28px 24px !important;
+  padding-block: 24px 68px !important;
+}
+.cd {
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--hair);
+  box-shadow: var(--edge-hi), var(--sh-sm);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.2s;
+}
+.cd:hover {
+  transform: translateY(-4px);
+  border-color: var(--acc, var(--era));
+  box-shadow: var(--edge-hi), var(--sh-md);
+}
+.cd .cv {
+  border-radius: 10px !important;
+  box-shadow:
+    -4px 4px 0 rgba(0, 0, 0, 0.22),
+    -10px 14px 26px rgba(0, 0, 0, 0.32),
+    inset 4px 0 0 rgba(255, 255, 255, 0.08) !important;
+}
+.cd:hover .cv {
+  transform: translateY(-2px) !important;
+  box-shadow:
+    -6px 6px 0 color-mix(in srgb, var(--acc, var(--era)) 40%, transparent),
+    -14px 20px 34px rgba(0, 0, 0, 0.38) !important;
+}
+.cd .cv.up {
+  background: var(--panel-2) !important;
+  color: var(--ink-mid) !important;
+  border: 1.5px dashed var(--hair-strong) !important;
+  box-shadow: var(--recess) !important;
+}
+
+/* 7) All Other Pages: Experiences Filters, Glossary, About, Forms, Search & Sources */
+.ctl {
+  padding: 14px 16px !important;
+  border-radius: 14px;
+  border: 1px solid var(--hair) !important;
+  background: var(--panel);
+  box-shadow: var(--sh-sm);
+  margin-bottom: 12px;
+}
+.inp,
+.sel,
+.ta {
+  border-radius: 10px !important;
+  border: 1px solid var(--hair-strong) !important;
+  background: var(--void) !important;
+  color: var(--ink-hi) !important;
+  box-shadow: var(--recess);
+}
+.inp:focus,
+.sel:focus,
+.ta:focus {
+  outline: none;
+  border-color: var(--acc, var(--era)) !important;
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--acc, var(--era)) 18%, transparent);
+}
+.chip {
+  border-radius: 9px !important;
+  border: 1px solid var(--hair-strong) !important;
+  background: var(--panel) !important;
+  color: var(--ink-hi) !important;
+  min-height: 40px !important;
+  box-shadow: var(--edge-hi), var(--sh-sm);
+  transition:
+    transform 0.14s ease,
+    border-color 0.16s ease,
+    background 0.16s ease;
+}
+.chip:hover {
+  border-color: var(--acc, var(--era)) !important;
+  transform: translateY(-1px);
+}
+.chip[aria-pressed="true"] {
+  background: var(--acc, var(--era)) !important;
+  color: var(--on-tx, #060d08) !important;
+  border-color: var(--acc, var(--era)) !important;
+}
+.tag {
+  border-radius: 999px !important;
+  padding: 2px 10px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  background: color-mix(
+    in srgb,
+    var(--acc, var(--era)) 12%,
+    var(--panel-2)
+  ) !important;
+  color: var(--acc, var(--era)) !important;
+  border: 1px solid color-mix(in srgb, var(--acc, var(--era)) 30%, transparent) !important;
+}
+.tag.s {
+  background: var(--panel-2) !important;
+  color: var(--ink-mid) !important;
+  border-color: var(--hair) !important;
+}
+
+.glo {
+  display: grid !important;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(280px, 100%), 1fr)
+  ) !important;
+  gap: 14px !important;
+  border-top: 0 !important;
+  margin-top: 22px !important;
+}
+.glo > div {
+  padding: 18px 20px !important;
+  border-radius: 14px !important;
+  border: 1px solid var(--hair) !important;
+  border-inline-start: 3.5px solid var(--acc, var(--era)) !important;
+  background: var(--panel) !important;
+  box-shadow: var(--edge-hi), var(--sh-sm) !important;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.glo > div:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--edge-hi), var(--sh-md) !important;
+}
+.glo b {
+  color: var(--acc, var(--era)) !important;
+  margin-bottom: 5px;
+}
+
+.meta {
+  border: 1px solid var(--hair) !important;
+  border-radius: 14px !important;
+  background: var(--panel) !important;
+  box-shadow: var(--edge-hi), var(--sh-sm);
+  padding: 4px 18px;
+}
+.aud,
+.vs {
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: var(--sh-md);
+  overflow: hidden;
+}
+.fm,
+.fm-out,
+.draft-note,
+.empty,
+.nb-hub-prog {
+  border-radius: 16px !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--hair) !important;
+  color: var(--ink-hi) !important;
+  box-shadow: var(--edge-hi), var(--sh-sm);
+}
+.fm {
+  padding: 24px;
+  max-width: 720px;
+}
+.res {
+  border-top: 0 !important;
+  gap: 10px;
+}
+.res a {
+  padding: 15px 18px !important;
+  border-radius: 14px;
+  border: 1px solid var(--hair) !important;
+  background: var(--panel);
+  box-shadow: var(--sh-sm);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+.res a:hover {
+  transform: translateX(-4px);
+  border-color: var(--acc, var(--era)) !important;
+}
+.pn-nav a {
+  border-radius: 14px !important;
+  box-shadow: var(--sh-sm);
+}
+
+/* 8) Reader Sheets, Callouts & Hardware Labs */
+.art-sec[data-id] {
+  border-radius: 18px !important;
+  border-top: 4px solid var(--acc) !important;
+  box-shadow: var(--sh-md);
+}
+.rd-toc {
+  border-radius: 16px !important;
+  box-shadow: var(--sh-sm);
+}
+.callout {
+  border-radius: 14px !important;
+  box-shadow: var(--sh-sm) !important;
+}
+figure.fig.ph {
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: var(--sh-md) !important;
+}
+figure.fig.ph img {
+  border-radius: 10px;
+  object-position: center 20%;
+}
+
+.xp-slot {
+  border-radius: 18px !important;
+  background: linear-gradient(175deg, #111613 0%, #0a0d0b 100%) !important;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+}
+.bl-k,
+.lg-sw,
+.cf-t,
+.mr button,
+.cc button {
+  border-radius: 10px !important;
+  box-shadow:
+    0 3px 0 #050706,
+    0 6px 14px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+.bl-sw button:active .bl-k,
+.lg-sw:active,
+.cf-t:active,
+.mr button:active,
+.cc button:active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 #050706 !important;
+}
+.nb-fb-hud,
+.flip-wrap .fb-ctl,
+.nb-player,
+.nb-ap,
+.nb-cmd-box,
+.nb-hover-preview,
+.gl-pop {
+  border-radius: 14px !important;
+  box-shadow: var(--sh-lg), var(--edge-hi) !important;
+}
+.nb-hover-preview img {
+  border-radius: 8px;
+  object-position: center 20%;
+}
+/* ==========================================================================
+   17. SPLIT TECHNICAL BINARY-FIRST BADGES (Website — Zero Overlap)
+   ========================================================================== */
+.nb-bin-unit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace !important;
+  direction: ltr;
+  line-height: 1;
+  gap: 6px;
+}
+.nb-bin-main {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.nb-bin-dec {
+  font-size: 0.72em;
+  font-weight: 600;
+  opacity: 0.44;
+  padding-left: 6px;
+  border-left: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  transition: opacity 0.18s ease;
+}
+
+.nb-bin-unit.is-stacked {
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+.nb-bin-unit.is-stacked .nb-bin-dec {
+  padding-left: 0;
+  padding-top: 3px;
+  border-left: 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.45;
+}
+.toc-l .ar[data-aid] .n {
+  min-width: 64px !important;
+  padding: 7px 8px !important;
+  font-size: 12.5px !important;
+}
+
+.nb-min-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  direction: ltr;
+  font-family: "JetBrains Mono", ui-monospace, monospace !important;
+  font-size: 11.5px;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel-2) 70%, transparent);
+  border: 1px solid var(--hair);
+}
+.nb-min-chip .nb-bin-main {
+  color: var(--ink-hi);
+  font-weight: 700;
+}
+.nb-min-chip .nb-bin-dec {
+  color: var(--ink-mid);
+  opacity: 0.5;
+}
+.nb-min-lbl {
+  font-size: 10px;
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+}
+
+.toc-l .ar:hover .nb-bin-dec,
+.nb-bin-unit:hover .nb-bin-dec,
+.nb-min-chip:hover .nb-bin-dec {
+  opacity: 0.85;
 }
